@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype Alias
-  = Alias { "Name" :: NullOrUndefined (String), "Names" :: NullOrUndefined (AliasNames), "Type" :: NullOrUndefined (String) }
+  = Alias { "Name" :: Maybe (String), "Names" :: Maybe (AliasNames), "Type" :: Maybe (String) }
 ```
 
 <p>An alias for an edge.</p>
@@ -35,7 +35,7 @@ Constructs Alias from required parameters
 #### `newAlias'`
 
 ``` purescript
-newAlias' :: ({ "Name" :: NullOrUndefined (String), "Names" :: NullOrUndefined (AliasNames), "Type" :: NullOrUndefined (String) } -> { "Name" :: NullOrUndefined (String), "Names" :: NullOrUndefined (AliasNames), "Type" :: NullOrUndefined (String) }) -> Alias
+newAlias' :: ({ "Name" :: Maybe (String), "Names" :: Maybe (AliasNames), "Type" :: Maybe (String) } -> { "Name" :: Maybe (String), "Names" :: Maybe (AliasNames), "Type" :: Maybe (String) }) -> Alias
 ```
 
 Constructs Alias's fields from required parameters
@@ -92,7 +92,7 @@ Encode AnnotationKey
 
 ``` purescript
 newtype AnnotationValue
-  = AnnotationValue { "NumberValue" :: NullOrUndefined (NullableDouble), "BooleanValue" :: NullOrUndefined (NullableBoolean), "StringValue" :: NullOrUndefined (String) }
+  = AnnotationValue { "NumberValue" :: Maybe (NullableDouble), "BooleanValue" :: Maybe (NullableBoolean), "StringValue" :: Maybe (String) }
 ```
 
 <p>Value of a segment annotation. Has one of three value types: Number, Boolean or String.</p>
@@ -117,7 +117,7 @@ Constructs AnnotationValue from required parameters
 #### `newAnnotationValue'`
 
 ``` purescript
-newAnnotationValue' :: ({ "NumberValue" :: NullOrUndefined (NullableDouble), "BooleanValue" :: NullOrUndefined (NullableBoolean), "StringValue" :: NullOrUndefined (String) } -> { "NumberValue" :: NullOrUndefined (NullableDouble), "BooleanValue" :: NullOrUndefined (NullableBoolean), "StringValue" :: NullOrUndefined (String) }) -> AnnotationValue
+newAnnotationValue' :: ({ "NumberValue" :: Maybe (NullableDouble), "BooleanValue" :: Maybe (NullableBoolean), "StringValue" :: Maybe (String) } -> { "NumberValue" :: Maybe (NullableDouble), "BooleanValue" :: Maybe (NullableBoolean), "StringValue" :: Maybe (String) }) -> AnnotationValue
 ```
 
 Constructs AnnotationValue's fields from required parameters
@@ -142,7 +142,7 @@ Encode Annotations
 
 ``` purescript
 newtype BackendConnectionErrors
-  = BackendConnectionErrors { "TimeoutCount" :: NullOrUndefined (NullableInteger), "ConnectionRefusedCount" :: NullOrUndefined (NullableInteger), "HTTPCode4XXCount" :: NullOrUndefined (NullableInteger), "HTTPCode5XXCount" :: NullOrUndefined (NullableInteger), "UnknownHostCount" :: NullOrUndefined (NullableInteger), "OtherCount" :: NullOrUndefined (NullableInteger) }
+  = BackendConnectionErrors { "TimeoutCount" :: Maybe (NullableInteger), "ConnectionRefusedCount" :: Maybe (NullableInteger), "HTTPCode4XXCount" :: Maybe (NullableInteger), "HTTPCode5XXCount" :: Maybe (NullableInteger), "UnknownHostCount" :: Maybe (NullableInteger), "OtherCount" :: Maybe (NullableInteger) }
 ```
 
 <p/>
@@ -167,7 +167,7 @@ Constructs BackendConnectionErrors from required parameters
 #### `newBackendConnectionErrors'`
 
 ``` purescript
-newBackendConnectionErrors' :: ({ "TimeoutCount" :: NullOrUndefined (NullableInteger), "ConnectionRefusedCount" :: NullOrUndefined (NullableInteger), "HTTPCode4XXCount" :: NullOrUndefined (NullableInteger), "HTTPCode5XXCount" :: NullOrUndefined (NullableInteger), "UnknownHostCount" :: NullOrUndefined (NullableInteger), "OtherCount" :: NullOrUndefined (NullableInteger) } -> { "TimeoutCount" :: NullOrUndefined (NullableInteger), "ConnectionRefusedCount" :: NullOrUndefined (NullableInteger), "HTTPCode4XXCount" :: NullOrUndefined (NullableInteger), "HTTPCode5XXCount" :: NullOrUndefined (NullableInteger), "UnknownHostCount" :: NullOrUndefined (NullableInteger), "OtherCount" :: NullOrUndefined (NullableInteger) }) -> BackendConnectionErrors
+newBackendConnectionErrors' :: ({ "TimeoutCount" :: Maybe (NullableInteger), "ConnectionRefusedCount" :: Maybe (NullableInteger), "HTTPCode4XXCount" :: Maybe (NullableInteger), "HTTPCode5XXCount" :: Maybe (NullableInteger), "UnknownHostCount" :: Maybe (NullableInteger), "OtherCount" :: Maybe (NullableInteger) } -> { "TimeoutCount" :: Maybe (NullableInteger), "ConnectionRefusedCount" :: Maybe (NullableInteger), "HTTPCode4XXCount" :: Maybe (NullableInteger), "HTTPCode5XXCount" :: Maybe (NullableInteger), "UnknownHostCount" :: Maybe (NullableInteger), "OtherCount" :: Maybe (NullableInteger) }) -> BackendConnectionErrors
 ```
 
 Constructs BackendConnectionErrors's fields from required parameters
@@ -176,7 +176,7 @@ Constructs BackendConnectionErrors's fields from required parameters
 
 ``` purescript
 newtype BatchGetTracesRequest
-  = BatchGetTracesRequest { "TraceIds" :: TraceIdList, "NextToken" :: NullOrUndefined (String) }
+  = BatchGetTracesRequest { "TraceIds" :: TraceIdList, "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -199,7 +199,7 @@ Constructs BatchGetTracesRequest from required parameters
 #### `newBatchGetTracesRequest'`
 
 ``` purescript
-newBatchGetTracesRequest' :: TraceIdList -> ({ "TraceIds" :: TraceIdList, "NextToken" :: NullOrUndefined (String) } -> { "TraceIds" :: TraceIdList, "NextToken" :: NullOrUndefined (String) }) -> BatchGetTracesRequest
+newBatchGetTracesRequest' :: TraceIdList -> ({ "TraceIds" :: TraceIdList, "NextToken" :: Maybe (String) } -> { "TraceIds" :: TraceIdList, "NextToken" :: Maybe (String) }) -> BatchGetTracesRequest
 ```
 
 Constructs BatchGetTracesRequest's fields from required parameters
@@ -208,7 +208,7 @@ Constructs BatchGetTracesRequest's fields from required parameters
 
 ``` purescript
 newtype BatchGetTracesResult
-  = BatchGetTracesResult { "Traces" :: NullOrUndefined (TraceList), "UnprocessedTraceIds" :: NullOrUndefined (UnprocessedTraceIdList), "NextToken" :: NullOrUndefined (String) }
+  = BatchGetTracesResult { "Traces" :: Maybe (TraceList), "UnprocessedTraceIds" :: Maybe (UnprocessedTraceIdList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -231,7 +231,7 @@ Constructs BatchGetTracesResult from required parameters
 #### `newBatchGetTracesResult'`
 
 ``` purescript
-newBatchGetTracesResult' :: ({ "Traces" :: NullOrUndefined (TraceList), "UnprocessedTraceIds" :: NullOrUndefined (UnprocessedTraceIdList), "NextToken" :: NullOrUndefined (String) } -> { "Traces" :: NullOrUndefined (TraceList), "UnprocessedTraceIds" :: NullOrUndefined (UnprocessedTraceIdList), "NextToken" :: NullOrUndefined (String) }) -> BatchGetTracesResult
+newBatchGetTracesResult' :: ({ "Traces" :: Maybe (TraceList), "UnprocessedTraceIds" :: Maybe (UnprocessedTraceIdList), "NextToken" :: Maybe (String) } -> { "Traces" :: Maybe (TraceList), "UnprocessedTraceIds" :: Maybe (UnprocessedTraceIdList), "NextToken" :: Maybe (String) }) -> BatchGetTracesResult
 ```
 
 Constructs BatchGetTracesResult's fields from required parameters
@@ -256,7 +256,7 @@ Encode EC2InstanceId
 
 ``` purescript
 newtype Edge
-  = Edge { "ReferenceId" :: NullOrUndefined (NullableInteger), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "SummaryStatistics" :: NullOrUndefined (EdgeStatistics), "ResponseTimeHistogram" :: NullOrUndefined (Histogram), "Aliases" :: NullOrUndefined (AliasList) }
+  = Edge { "ReferenceId" :: Maybe (NullableInteger), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "SummaryStatistics" :: Maybe (EdgeStatistics), "ResponseTimeHistogram" :: Maybe (Histogram), "Aliases" :: Maybe (AliasList) }
 ```
 
 <p>Information about a connection between two services.</p>
@@ -281,7 +281,7 @@ Constructs Edge from required parameters
 #### `newEdge'`
 
 ``` purescript
-newEdge' :: ({ "ReferenceId" :: NullOrUndefined (NullableInteger), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "SummaryStatistics" :: NullOrUndefined (EdgeStatistics), "ResponseTimeHistogram" :: NullOrUndefined (Histogram), "Aliases" :: NullOrUndefined (AliasList) } -> { "ReferenceId" :: NullOrUndefined (NullableInteger), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "SummaryStatistics" :: NullOrUndefined (EdgeStatistics), "ResponseTimeHistogram" :: NullOrUndefined (Histogram), "Aliases" :: NullOrUndefined (AliasList) }) -> Edge
+newEdge' :: ({ "ReferenceId" :: Maybe (NullableInteger), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "SummaryStatistics" :: Maybe (EdgeStatistics), "ResponseTimeHistogram" :: Maybe (Histogram), "Aliases" :: Maybe (AliasList) } -> { "ReferenceId" :: Maybe (NullableInteger), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "SummaryStatistics" :: Maybe (EdgeStatistics), "ResponseTimeHistogram" :: Maybe (Histogram), "Aliases" :: Maybe (AliasList) }) -> Edge
 ```
 
 Constructs Edge's fields from required parameters
@@ -306,7 +306,7 @@ Encode EdgeList
 
 ``` purescript
 newtype EdgeStatistics
-  = EdgeStatistics { "OkCount" :: NullOrUndefined (NullableLong), "ErrorStatistics" :: NullOrUndefined (ErrorStatistics), "FaultStatistics" :: NullOrUndefined (FaultStatistics), "TotalCount" :: NullOrUndefined (NullableLong), "TotalResponseTime" :: NullOrUndefined (NullableDouble) }
+  = EdgeStatistics { "OkCount" :: Maybe (NullableLong), "ErrorStatistics" :: Maybe (ErrorStatistics), "FaultStatistics" :: Maybe (FaultStatistics), "TotalCount" :: Maybe (NullableLong), "TotalResponseTime" :: Maybe (NullableDouble) }
 ```
 
 <p>Response statistics for an edge.</p>
@@ -331,7 +331,7 @@ Constructs EdgeStatistics from required parameters
 #### `newEdgeStatistics'`
 
 ``` purescript
-newEdgeStatistics' :: ({ "OkCount" :: NullOrUndefined (NullableLong), "ErrorStatistics" :: NullOrUndefined (ErrorStatistics), "FaultStatistics" :: NullOrUndefined (FaultStatistics), "TotalCount" :: NullOrUndefined (NullableLong), "TotalResponseTime" :: NullOrUndefined (NullableDouble) } -> { "OkCount" :: NullOrUndefined (NullableLong), "ErrorStatistics" :: NullOrUndefined (ErrorStatistics), "FaultStatistics" :: NullOrUndefined (FaultStatistics), "TotalCount" :: NullOrUndefined (NullableLong), "TotalResponseTime" :: NullOrUndefined (NullableDouble) }) -> EdgeStatistics
+newEdgeStatistics' :: ({ "OkCount" :: Maybe (NullableLong), "ErrorStatistics" :: Maybe (ErrorStatistics), "FaultStatistics" :: Maybe (FaultStatistics), "TotalCount" :: Maybe (NullableLong), "TotalResponseTime" :: Maybe (NullableDouble) } -> { "OkCount" :: Maybe (NullableLong), "ErrorStatistics" :: Maybe (ErrorStatistics), "FaultStatistics" :: Maybe (FaultStatistics), "TotalCount" :: Maybe (NullableLong), "TotalResponseTime" :: Maybe (NullableDouble) }) -> EdgeStatistics
 ```
 
 Constructs EdgeStatistics's fields from required parameters
@@ -356,7 +356,7 @@ Encode ErrorMessage
 
 ``` purescript
 newtype ErrorStatistics
-  = ErrorStatistics { "ThrottleCount" :: NullOrUndefined (NullableLong), "OtherCount" :: NullOrUndefined (NullableLong), "TotalCount" :: NullOrUndefined (NullableLong) }
+  = ErrorStatistics { "ThrottleCount" :: Maybe (NullableLong), "OtherCount" :: Maybe (NullableLong), "TotalCount" :: Maybe (NullableLong) }
 ```
 
 <p>Information about requests that failed with a 4xx Client Error status code.</p>
@@ -381,7 +381,7 @@ Constructs ErrorStatistics from required parameters
 #### `newErrorStatistics'`
 
 ``` purescript
-newErrorStatistics' :: ({ "ThrottleCount" :: NullOrUndefined (NullableLong), "OtherCount" :: NullOrUndefined (NullableLong), "TotalCount" :: NullOrUndefined (NullableLong) } -> { "ThrottleCount" :: NullOrUndefined (NullableLong), "OtherCount" :: NullOrUndefined (NullableLong), "TotalCount" :: NullOrUndefined (NullableLong) }) -> ErrorStatistics
+newErrorStatistics' :: ({ "ThrottleCount" :: Maybe (NullableLong), "OtherCount" :: Maybe (NullableLong), "TotalCount" :: Maybe (NullableLong) } -> { "ThrottleCount" :: Maybe (NullableLong), "OtherCount" :: Maybe (NullableLong), "TotalCount" :: Maybe (NullableLong) }) -> ErrorStatistics
 ```
 
 Constructs ErrorStatistics's fields from required parameters
@@ -390,7 +390,7 @@ Constructs ErrorStatistics's fields from required parameters
 
 ``` purescript
 newtype FaultStatistics
-  = FaultStatistics { "OtherCount" :: NullOrUndefined (NullableLong), "TotalCount" :: NullOrUndefined (NullableLong) }
+  = FaultStatistics { "OtherCount" :: Maybe (NullableLong), "TotalCount" :: Maybe (NullableLong) }
 ```
 
 <p>Information about requests that failed with a 5xx Server Error status code.</p>
@@ -415,7 +415,7 @@ Constructs FaultStatistics from required parameters
 #### `newFaultStatistics'`
 
 ``` purescript
-newFaultStatistics' :: ({ "OtherCount" :: NullOrUndefined (NullableLong), "TotalCount" :: NullOrUndefined (NullableLong) } -> { "OtherCount" :: NullOrUndefined (NullableLong), "TotalCount" :: NullOrUndefined (NullableLong) }) -> FaultStatistics
+newFaultStatistics' :: ({ "OtherCount" :: Maybe (NullableLong), "TotalCount" :: Maybe (NullableLong) } -> { "OtherCount" :: Maybe (NullableLong), "TotalCount" :: Maybe (NullableLong) }) -> FaultStatistics
 ```
 
 Constructs FaultStatistics's fields from required parameters
@@ -440,7 +440,7 @@ Encode FilterExpression
 
 ``` purescript
 newtype GetServiceGraphRequest
-  = GetServiceGraphRequest { "StartTime" :: Timestamp, "EndTime" :: Timestamp, "NextToken" :: NullOrUndefined (String) }
+  = GetServiceGraphRequest { "StartTime" :: Timestamp, "EndTime" :: Timestamp, "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -463,7 +463,7 @@ Constructs GetServiceGraphRequest from required parameters
 #### `newGetServiceGraphRequest'`
 
 ``` purescript
-newGetServiceGraphRequest' :: Timestamp -> Timestamp -> ({ "StartTime" :: Timestamp, "EndTime" :: Timestamp, "NextToken" :: NullOrUndefined (String) } -> { "StartTime" :: Timestamp, "EndTime" :: Timestamp, "NextToken" :: NullOrUndefined (String) }) -> GetServiceGraphRequest
+newGetServiceGraphRequest' :: Timestamp -> Timestamp -> ({ "StartTime" :: Timestamp, "EndTime" :: Timestamp, "NextToken" :: Maybe (String) } -> { "StartTime" :: Timestamp, "EndTime" :: Timestamp, "NextToken" :: Maybe (String) }) -> GetServiceGraphRequest
 ```
 
 Constructs GetServiceGraphRequest's fields from required parameters
@@ -472,7 +472,7 @@ Constructs GetServiceGraphRequest's fields from required parameters
 
 ``` purescript
 newtype GetServiceGraphResult
-  = GetServiceGraphResult { "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Services" :: NullOrUndefined (ServiceList), "NextToken" :: NullOrUndefined (String) }
+  = GetServiceGraphResult { "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Services" :: Maybe (ServiceList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -495,7 +495,7 @@ Constructs GetServiceGraphResult from required parameters
 #### `newGetServiceGraphResult'`
 
 ``` purescript
-newGetServiceGraphResult' :: ({ "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Services" :: NullOrUndefined (ServiceList), "NextToken" :: NullOrUndefined (String) } -> { "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Services" :: NullOrUndefined (ServiceList), "NextToken" :: NullOrUndefined (String) }) -> GetServiceGraphResult
+newGetServiceGraphResult' :: ({ "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Services" :: Maybe (ServiceList), "NextToken" :: Maybe (String) } -> { "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Services" :: Maybe (ServiceList), "NextToken" :: Maybe (String) }) -> GetServiceGraphResult
 ```
 
 Constructs GetServiceGraphResult's fields from required parameters
@@ -504,7 +504,7 @@ Constructs GetServiceGraphResult's fields from required parameters
 
 ``` purescript
 newtype GetTraceGraphRequest
-  = GetTraceGraphRequest { "TraceIds" :: TraceIdList, "NextToken" :: NullOrUndefined (String) }
+  = GetTraceGraphRequest { "TraceIds" :: TraceIdList, "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -527,7 +527,7 @@ Constructs GetTraceGraphRequest from required parameters
 #### `newGetTraceGraphRequest'`
 
 ``` purescript
-newGetTraceGraphRequest' :: TraceIdList -> ({ "TraceIds" :: TraceIdList, "NextToken" :: NullOrUndefined (String) } -> { "TraceIds" :: TraceIdList, "NextToken" :: NullOrUndefined (String) }) -> GetTraceGraphRequest
+newGetTraceGraphRequest' :: TraceIdList -> ({ "TraceIds" :: TraceIdList, "NextToken" :: Maybe (String) } -> { "TraceIds" :: TraceIdList, "NextToken" :: Maybe (String) }) -> GetTraceGraphRequest
 ```
 
 Constructs GetTraceGraphRequest's fields from required parameters
@@ -536,7 +536,7 @@ Constructs GetTraceGraphRequest's fields from required parameters
 
 ``` purescript
 newtype GetTraceGraphResult
-  = GetTraceGraphResult { "Services" :: NullOrUndefined (ServiceList), "NextToken" :: NullOrUndefined (String) }
+  = GetTraceGraphResult { "Services" :: Maybe (ServiceList), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -559,7 +559,7 @@ Constructs GetTraceGraphResult from required parameters
 #### `newGetTraceGraphResult'`
 
 ``` purescript
-newGetTraceGraphResult' :: ({ "Services" :: NullOrUndefined (ServiceList), "NextToken" :: NullOrUndefined (String) } -> { "Services" :: NullOrUndefined (ServiceList), "NextToken" :: NullOrUndefined (String) }) -> GetTraceGraphResult
+newGetTraceGraphResult' :: ({ "Services" :: Maybe (ServiceList), "NextToken" :: Maybe (String) } -> { "Services" :: Maybe (ServiceList), "NextToken" :: Maybe (String) }) -> GetTraceGraphResult
 ```
 
 Constructs GetTraceGraphResult's fields from required parameters
@@ -568,7 +568,7 @@ Constructs GetTraceGraphResult's fields from required parameters
 
 ``` purescript
 newtype GetTraceSummariesRequest
-  = GetTraceSummariesRequest { "StartTime" :: Timestamp, "EndTime" :: Timestamp, "Sampling" :: NullOrUndefined (NullableBoolean), "FilterExpression" :: NullOrUndefined (FilterExpression), "NextToken" :: NullOrUndefined (String) }
+  = GetTraceSummariesRequest { "StartTime" :: Timestamp, "EndTime" :: Timestamp, "Sampling" :: Maybe (NullableBoolean), "FilterExpression" :: Maybe (FilterExpression), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -591,7 +591,7 @@ Constructs GetTraceSummariesRequest from required parameters
 #### `newGetTraceSummariesRequest'`
 
 ``` purescript
-newGetTraceSummariesRequest' :: Timestamp -> Timestamp -> ({ "StartTime" :: Timestamp, "EndTime" :: Timestamp, "Sampling" :: NullOrUndefined (NullableBoolean), "FilterExpression" :: NullOrUndefined (FilterExpression), "NextToken" :: NullOrUndefined (String) } -> { "StartTime" :: Timestamp, "EndTime" :: Timestamp, "Sampling" :: NullOrUndefined (NullableBoolean), "FilterExpression" :: NullOrUndefined (FilterExpression), "NextToken" :: NullOrUndefined (String) }) -> GetTraceSummariesRequest
+newGetTraceSummariesRequest' :: Timestamp -> Timestamp -> ({ "StartTime" :: Timestamp, "EndTime" :: Timestamp, "Sampling" :: Maybe (NullableBoolean), "FilterExpression" :: Maybe (FilterExpression), "NextToken" :: Maybe (String) } -> { "StartTime" :: Timestamp, "EndTime" :: Timestamp, "Sampling" :: Maybe (NullableBoolean), "FilterExpression" :: Maybe (FilterExpression), "NextToken" :: Maybe (String) }) -> GetTraceSummariesRequest
 ```
 
 Constructs GetTraceSummariesRequest's fields from required parameters
@@ -600,7 +600,7 @@ Constructs GetTraceSummariesRequest's fields from required parameters
 
 ``` purescript
 newtype GetTraceSummariesResult
-  = GetTraceSummariesResult { "TraceSummaries" :: NullOrUndefined (TraceSummaryList), "ApproximateTime" :: NullOrUndefined (Timestamp), "TracesProcessedCount" :: NullOrUndefined (NullableLong), "NextToken" :: NullOrUndefined (String) }
+  = GetTraceSummariesResult { "TraceSummaries" :: Maybe (TraceSummaryList), "ApproximateTime" :: Maybe (Timestamp), "TracesProcessedCount" :: Maybe (NullableLong), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -623,7 +623,7 @@ Constructs GetTraceSummariesResult from required parameters
 #### `newGetTraceSummariesResult'`
 
 ``` purescript
-newGetTraceSummariesResult' :: ({ "TraceSummaries" :: NullOrUndefined (TraceSummaryList), "ApproximateTime" :: NullOrUndefined (Timestamp), "TracesProcessedCount" :: NullOrUndefined (NullableLong), "NextToken" :: NullOrUndefined (String) } -> { "TraceSummaries" :: NullOrUndefined (TraceSummaryList), "ApproximateTime" :: NullOrUndefined (Timestamp), "TracesProcessedCount" :: NullOrUndefined (NullableLong), "NextToken" :: NullOrUndefined (String) }) -> GetTraceSummariesResult
+newGetTraceSummariesResult' :: ({ "TraceSummaries" :: Maybe (TraceSummaryList), "ApproximateTime" :: Maybe (Timestamp), "TracesProcessedCount" :: Maybe (NullableLong), "NextToken" :: Maybe (String) } -> { "TraceSummaries" :: Maybe (TraceSummaryList), "ApproximateTime" :: Maybe (Timestamp), "TracesProcessedCount" :: Maybe (NullableLong), "NextToken" :: Maybe (String) }) -> GetTraceSummariesResult
 ```
 
 Constructs GetTraceSummariesResult's fields from required parameters
@@ -648,7 +648,7 @@ Encode Histogram
 
 ``` purescript
 newtype HistogramEntry
-  = HistogramEntry { "Value" :: NullOrUndefined (Number), "Count" :: NullOrUndefined (Int) }
+  = HistogramEntry { "Value" :: Maybe (Number), "Count" :: Maybe (Int) }
 ```
 
 <p>An entry in a histogram for a statistic. A histogram maps the range of observed values on the X axis, and the prevalence of each value on the Y axis.</p>
@@ -673,7 +673,7 @@ Constructs HistogramEntry from required parameters
 #### `newHistogramEntry'`
 
 ``` purescript
-newHistogramEntry' :: ({ "Value" :: NullOrUndefined (Number), "Count" :: NullOrUndefined (Int) } -> { "Value" :: NullOrUndefined (Number), "Count" :: NullOrUndefined (Int) }) -> HistogramEntry
+newHistogramEntry' :: ({ "Value" :: Maybe (Number), "Count" :: Maybe (Int) } -> { "Value" :: Maybe (Number), "Count" :: Maybe (Int) }) -> HistogramEntry
 ```
 
 Constructs HistogramEntry's fields from required parameters
@@ -698,7 +698,7 @@ Encode Hostname
 
 ``` purescript
 newtype Http
-  = Http { "HttpURL" :: NullOrUndefined (String), "HttpStatus" :: NullOrUndefined (NullableInteger), "HttpMethod" :: NullOrUndefined (String), "UserAgent" :: NullOrUndefined (String), "ClientIp" :: NullOrUndefined (String) }
+  = Http { "HttpURL" :: Maybe (String), "HttpStatus" :: Maybe (NullableInteger), "HttpMethod" :: Maybe (String), "UserAgent" :: Maybe (String), "ClientIp" :: Maybe (String) }
 ```
 
 <p>Information about an HTTP request.</p>
@@ -723,7 +723,7 @@ Constructs Http from required parameters
 #### `newHttp'`
 
 ``` purescript
-newHttp' :: ({ "HttpURL" :: NullOrUndefined (String), "HttpStatus" :: NullOrUndefined (NullableInteger), "HttpMethod" :: NullOrUndefined (String), "UserAgent" :: NullOrUndefined (String), "ClientIp" :: NullOrUndefined (String) } -> { "HttpURL" :: NullOrUndefined (String), "HttpStatus" :: NullOrUndefined (NullableInteger), "HttpMethod" :: NullOrUndefined (String), "UserAgent" :: NullOrUndefined (String), "ClientIp" :: NullOrUndefined (String) }) -> Http
+newHttp' :: ({ "HttpURL" :: Maybe (String), "HttpStatus" :: Maybe (NullableInteger), "HttpMethod" :: Maybe (String), "UserAgent" :: Maybe (String), "ClientIp" :: Maybe (String) } -> { "HttpURL" :: Maybe (String), "HttpStatus" :: Maybe (NullableInteger), "HttpMethod" :: Maybe (String), "UserAgent" :: Maybe (String), "ClientIp" :: Maybe (String) }) -> Http
 ```
 
 Constructs Http's fields from required parameters
@@ -732,7 +732,7 @@ Constructs Http's fields from required parameters
 
 ``` purescript
 newtype InvalidRequestException
-  = InvalidRequestException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InvalidRequestException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The request is missing required parameters or has invalid parameters.</p>
@@ -757,7 +757,7 @@ Constructs InvalidRequestException from required parameters
 #### `newInvalidRequestException'`
 
 ``` purescript
-newInvalidRequestException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InvalidRequestException
+newInvalidRequestException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InvalidRequestException
 ```
 
 Constructs InvalidRequestException's fields from required parameters
@@ -830,7 +830,7 @@ Encode NullableLong
 
 ``` purescript
 newtype PutTelemetryRecordsRequest
-  = PutTelemetryRecordsRequest { "TelemetryRecords" :: TelemetryRecordList, "EC2InstanceId" :: NullOrUndefined (EC2InstanceId), "Hostname" :: NullOrUndefined (Hostname), "ResourceARN" :: NullOrUndefined (ResourceARN) }
+  = PutTelemetryRecordsRequest { "TelemetryRecords" :: TelemetryRecordList, "EC2InstanceId" :: Maybe (EC2InstanceId), "Hostname" :: Maybe (Hostname), "ResourceARN" :: Maybe (ResourceARN) }
 ```
 
 ##### Instances
@@ -853,7 +853,7 @@ Constructs PutTelemetryRecordsRequest from required parameters
 #### `newPutTelemetryRecordsRequest'`
 
 ``` purescript
-newPutTelemetryRecordsRequest' :: TelemetryRecordList -> ({ "TelemetryRecords" :: TelemetryRecordList, "EC2InstanceId" :: NullOrUndefined (EC2InstanceId), "Hostname" :: NullOrUndefined (Hostname), "ResourceARN" :: NullOrUndefined (ResourceARN) } -> { "TelemetryRecords" :: TelemetryRecordList, "EC2InstanceId" :: NullOrUndefined (EC2InstanceId), "Hostname" :: NullOrUndefined (Hostname), "ResourceARN" :: NullOrUndefined (ResourceARN) }) -> PutTelemetryRecordsRequest
+newPutTelemetryRecordsRequest' :: TelemetryRecordList -> ({ "TelemetryRecords" :: TelemetryRecordList, "EC2InstanceId" :: Maybe (EC2InstanceId), "Hostname" :: Maybe (Hostname), "ResourceARN" :: Maybe (ResourceARN) } -> { "TelemetryRecords" :: TelemetryRecordList, "EC2InstanceId" :: Maybe (EC2InstanceId), "Hostname" :: Maybe (Hostname), "ResourceARN" :: Maybe (ResourceARN) }) -> PutTelemetryRecordsRequest
 ```
 
 Constructs PutTelemetryRecordsRequest's fields from required parameters
@@ -910,7 +910,7 @@ Constructs PutTraceSegmentsRequest's fields from required parameters
 
 ``` purescript
 newtype PutTraceSegmentsResult
-  = PutTraceSegmentsResult { "UnprocessedTraceSegments" :: NullOrUndefined (UnprocessedTraceSegmentList) }
+  = PutTraceSegmentsResult { "UnprocessedTraceSegments" :: Maybe (UnprocessedTraceSegmentList) }
 ```
 
 ##### Instances
@@ -933,7 +933,7 @@ Constructs PutTraceSegmentsResult from required parameters
 #### `newPutTraceSegmentsResult'`
 
 ``` purescript
-newPutTraceSegmentsResult' :: ({ "UnprocessedTraceSegments" :: NullOrUndefined (UnprocessedTraceSegmentList) } -> { "UnprocessedTraceSegments" :: NullOrUndefined (UnprocessedTraceSegmentList) }) -> PutTraceSegmentsResult
+newPutTraceSegmentsResult' :: ({ "UnprocessedTraceSegments" :: Maybe (UnprocessedTraceSegmentList) } -> { "UnprocessedTraceSegments" :: Maybe (UnprocessedTraceSegmentList) }) -> PutTraceSegmentsResult
 ```
 
 Constructs PutTraceSegmentsResult's fields from required parameters
@@ -958,7 +958,7 @@ Encode ResourceARN
 
 ``` purescript
 newtype Segment
-  = Segment { "Id" :: NullOrUndefined (SegmentId), "Document" :: NullOrUndefined (SegmentDocument) }
+  = Segment { "Id" :: Maybe (SegmentId), "Document" :: Maybe (SegmentDocument) }
 ```
 
 <p>A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with <a>PutTraceSegments</a>, or an <code>inferred</code> segment for a downstream service, generated from a subsegment sent by the service that called it.</p>
@@ -983,7 +983,7 @@ Constructs Segment from required parameters
 #### `newSegment'`
 
 ``` purescript
-newSegment' :: ({ "Id" :: NullOrUndefined (SegmentId), "Document" :: NullOrUndefined (SegmentDocument) } -> { "Id" :: NullOrUndefined (SegmentId), "Document" :: NullOrUndefined (SegmentDocument) }) -> Segment
+newSegment' :: ({ "Id" :: Maybe (SegmentId), "Document" :: Maybe (SegmentDocument) } -> { "Id" :: Maybe (SegmentId), "Document" :: Maybe (SegmentDocument) }) -> Segment
 ```
 
 Constructs Segment's fields from required parameters
@@ -1040,7 +1040,7 @@ Encode SegmentList
 
 ``` purescript
 newtype Service
-  = Service { "ReferenceId" :: NullOrUndefined (NullableInteger), "Name" :: NullOrUndefined (String), "Names" :: NullOrUndefined (ServiceNames), "Root" :: NullOrUndefined (NullableBoolean), "AccountId" :: NullOrUndefined (String), "Type" :: NullOrUndefined (String), "State" :: NullOrUndefined (String), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Edges" :: NullOrUndefined (EdgeList), "SummaryStatistics" :: NullOrUndefined (ServiceStatistics), "DurationHistogram" :: NullOrUndefined (Histogram), "ResponseTimeHistogram" :: NullOrUndefined (Histogram) }
+  = Service { "ReferenceId" :: Maybe (NullableInteger), "Name" :: Maybe (String), "Names" :: Maybe (ServiceNames), "Root" :: Maybe (NullableBoolean), "AccountId" :: Maybe (String), "Type" :: Maybe (String), "State" :: Maybe (String), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Edges" :: Maybe (EdgeList), "SummaryStatistics" :: Maybe (ServiceStatistics), "DurationHistogram" :: Maybe (Histogram), "ResponseTimeHistogram" :: Maybe (Histogram) }
 ```
 
 <p>Information about an application that processed requests, users that made requests, or downstream services, resources and applications that an application used.</p>
@@ -1065,7 +1065,7 @@ Constructs Service from required parameters
 #### `newService'`
 
 ``` purescript
-newService' :: ({ "ReferenceId" :: NullOrUndefined (NullableInteger), "Name" :: NullOrUndefined (String), "Names" :: NullOrUndefined (ServiceNames), "Root" :: NullOrUndefined (NullableBoolean), "AccountId" :: NullOrUndefined (String), "Type" :: NullOrUndefined (String), "State" :: NullOrUndefined (String), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Edges" :: NullOrUndefined (EdgeList), "SummaryStatistics" :: NullOrUndefined (ServiceStatistics), "DurationHistogram" :: NullOrUndefined (Histogram), "ResponseTimeHistogram" :: NullOrUndefined (Histogram) } -> { "ReferenceId" :: NullOrUndefined (NullableInteger), "Name" :: NullOrUndefined (String), "Names" :: NullOrUndefined (ServiceNames), "Root" :: NullOrUndefined (NullableBoolean), "AccountId" :: NullOrUndefined (String), "Type" :: NullOrUndefined (String), "State" :: NullOrUndefined (String), "StartTime" :: NullOrUndefined (Timestamp), "EndTime" :: NullOrUndefined (Timestamp), "Edges" :: NullOrUndefined (EdgeList), "SummaryStatistics" :: NullOrUndefined (ServiceStatistics), "DurationHistogram" :: NullOrUndefined (Histogram), "ResponseTimeHistogram" :: NullOrUndefined (Histogram) }) -> Service
+newService' :: ({ "ReferenceId" :: Maybe (NullableInteger), "Name" :: Maybe (String), "Names" :: Maybe (ServiceNames), "Root" :: Maybe (NullableBoolean), "AccountId" :: Maybe (String), "Type" :: Maybe (String), "State" :: Maybe (String), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Edges" :: Maybe (EdgeList), "SummaryStatistics" :: Maybe (ServiceStatistics), "DurationHistogram" :: Maybe (Histogram), "ResponseTimeHistogram" :: Maybe (Histogram) } -> { "ReferenceId" :: Maybe (NullableInteger), "Name" :: Maybe (String), "Names" :: Maybe (ServiceNames), "Root" :: Maybe (NullableBoolean), "AccountId" :: Maybe (String), "Type" :: Maybe (String), "State" :: Maybe (String), "StartTime" :: Maybe (Timestamp), "EndTime" :: Maybe (Timestamp), "Edges" :: Maybe (EdgeList), "SummaryStatistics" :: Maybe (ServiceStatistics), "DurationHistogram" :: Maybe (Histogram), "ResponseTimeHistogram" :: Maybe (Histogram) }) -> Service
 ```
 
 Constructs Service's fields from required parameters
@@ -1074,7 +1074,7 @@ Constructs Service's fields from required parameters
 
 ``` purescript
 newtype ServiceId
-  = ServiceId { "Name" :: NullOrUndefined (String), "Names" :: NullOrUndefined (ServiceNames), "AccountId" :: NullOrUndefined (String), "Type" :: NullOrUndefined (String) }
+  = ServiceId { "Name" :: Maybe (String), "Names" :: Maybe (ServiceNames), "AccountId" :: Maybe (String), "Type" :: Maybe (String) }
 ```
 
 <p/>
@@ -1099,7 +1099,7 @@ Constructs ServiceId from required parameters
 #### `newServiceId'`
 
 ``` purescript
-newServiceId' :: ({ "Name" :: NullOrUndefined (String), "Names" :: NullOrUndefined (ServiceNames), "AccountId" :: NullOrUndefined (String), "Type" :: NullOrUndefined (String) } -> { "Name" :: NullOrUndefined (String), "Names" :: NullOrUndefined (ServiceNames), "AccountId" :: NullOrUndefined (String), "Type" :: NullOrUndefined (String) }) -> ServiceId
+newServiceId' :: ({ "Name" :: Maybe (String), "Names" :: Maybe (ServiceNames), "AccountId" :: Maybe (String), "Type" :: Maybe (String) } -> { "Name" :: Maybe (String), "Names" :: Maybe (ServiceNames), "AccountId" :: Maybe (String), "Type" :: Maybe (String) }) -> ServiceId
 ```
 
 Constructs ServiceId's fields from required parameters
@@ -1156,7 +1156,7 @@ Encode ServiceNames
 
 ``` purescript
 newtype ServiceStatistics
-  = ServiceStatistics { "OkCount" :: NullOrUndefined (NullableLong), "ErrorStatistics" :: NullOrUndefined (ErrorStatistics), "FaultStatistics" :: NullOrUndefined (FaultStatistics), "TotalCount" :: NullOrUndefined (NullableLong), "TotalResponseTime" :: NullOrUndefined (NullableDouble) }
+  = ServiceStatistics { "OkCount" :: Maybe (NullableLong), "ErrorStatistics" :: Maybe (ErrorStatistics), "FaultStatistics" :: Maybe (FaultStatistics), "TotalCount" :: Maybe (NullableLong), "TotalResponseTime" :: Maybe (NullableDouble) }
 ```
 
 <p>Response statistics for a service.</p>
@@ -1181,7 +1181,7 @@ Constructs ServiceStatistics from required parameters
 #### `newServiceStatistics'`
 
 ``` purescript
-newServiceStatistics' :: ({ "OkCount" :: NullOrUndefined (NullableLong), "ErrorStatistics" :: NullOrUndefined (ErrorStatistics), "FaultStatistics" :: NullOrUndefined (FaultStatistics), "TotalCount" :: NullOrUndefined (NullableLong), "TotalResponseTime" :: NullOrUndefined (NullableDouble) } -> { "OkCount" :: NullOrUndefined (NullableLong), "ErrorStatistics" :: NullOrUndefined (ErrorStatistics), "FaultStatistics" :: NullOrUndefined (FaultStatistics), "TotalCount" :: NullOrUndefined (NullableLong), "TotalResponseTime" :: NullOrUndefined (NullableDouble) }) -> ServiceStatistics
+newServiceStatistics' :: ({ "OkCount" :: Maybe (NullableLong), "ErrorStatistics" :: Maybe (ErrorStatistics), "FaultStatistics" :: Maybe (FaultStatistics), "TotalCount" :: Maybe (NullableLong), "TotalResponseTime" :: Maybe (NullableDouble) } -> { "OkCount" :: Maybe (NullableLong), "ErrorStatistics" :: Maybe (ErrorStatistics), "FaultStatistics" :: Maybe (FaultStatistics), "TotalCount" :: Maybe (NullableLong), "TotalResponseTime" :: Maybe (NullableDouble) }) -> ServiceStatistics
 ```
 
 Constructs ServiceStatistics's fields from required parameters
@@ -1190,7 +1190,7 @@ Constructs ServiceStatistics's fields from required parameters
 
 ``` purescript
 newtype TelemetryRecord
-  = TelemetryRecord { "Timestamp" :: Timestamp, "SegmentsReceivedCount" :: NullOrUndefined (NullableInteger), "SegmentsSentCount" :: NullOrUndefined (NullableInteger), "SegmentsSpilloverCount" :: NullOrUndefined (NullableInteger), "SegmentsRejectedCount" :: NullOrUndefined (NullableInteger), "BackendConnectionErrors" :: NullOrUndefined (BackendConnectionErrors) }
+  = TelemetryRecord { "Timestamp" :: Timestamp, "SegmentsReceivedCount" :: Maybe (NullableInteger), "SegmentsSentCount" :: Maybe (NullableInteger), "SegmentsSpilloverCount" :: Maybe (NullableInteger), "SegmentsRejectedCount" :: Maybe (NullableInteger), "BackendConnectionErrors" :: Maybe (BackendConnectionErrors) }
 ```
 
 <p/>
@@ -1215,7 +1215,7 @@ Constructs TelemetryRecord from required parameters
 #### `newTelemetryRecord'`
 
 ``` purescript
-newTelemetryRecord' :: Timestamp -> ({ "Timestamp" :: Timestamp, "SegmentsReceivedCount" :: NullOrUndefined (NullableInteger), "SegmentsSentCount" :: NullOrUndefined (NullableInteger), "SegmentsSpilloverCount" :: NullOrUndefined (NullableInteger), "SegmentsRejectedCount" :: NullOrUndefined (NullableInteger), "BackendConnectionErrors" :: NullOrUndefined (BackendConnectionErrors) } -> { "Timestamp" :: Timestamp, "SegmentsReceivedCount" :: NullOrUndefined (NullableInteger), "SegmentsSentCount" :: NullOrUndefined (NullableInteger), "SegmentsSpilloverCount" :: NullOrUndefined (NullableInteger), "SegmentsRejectedCount" :: NullOrUndefined (NullableInteger), "BackendConnectionErrors" :: NullOrUndefined (BackendConnectionErrors) }) -> TelemetryRecord
+newTelemetryRecord' :: Timestamp -> ({ "Timestamp" :: Timestamp, "SegmentsReceivedCount" :: Maybe (NullableInteger), "SegmentsSentCount" :: Maybe (NullableInteger), "SegmentsSpilloverCount" :: Maybe (NullableInteger), "SegmentsRejectedCount" :: Maybe (NullableInteger), "BackendConnectionErrors" :: Maybe (BackendConnectionErrors) } -> { "Timestamp" :: Timestamp, "SegmentsReceivedCount" :: Maybe (NullableInteger), "SegmentsSentCount" :: Maybe (NullableInteger), "SegmentsSpilloverCount" :: Maybe (NullableInteger), "SegmentsRejectedCount" :: Maybe (NullableInteger), "BackendConnectionErrors" :: Maybe (BackendConnectionErrors) }) -> TelemetryRecord
 ```
 
 Constructs TelemetryRecord's fields from required parameters
@@ -1240,7 +1240,7 @@ Encode TelemetryRecordList
 
 ``` purescript
 newtype ThrottledException
-  = ThrottledException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ThrottledException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The request exceeds the maximum number of requests per second.</p>
@@ -1265,7 +1265,7 @@ Constructs ThrottledException from required parameters
 #### `newThrottledException'`
 
 ``` purescript
-newThrottledException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ThrottledException
+newThrottledException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ThrottledException
 ```
 
 Constructs ThrottledException's fields from required parameters
@@ -1274,7 +1274,7 @@ Constructs ThrottledException's fields from required parameters
 
 ``` purescript
 newtype Trace
-  = Trace { "Id" :: NullOrUndefined (TraceId), "Duration" :: NullOrUndefined (NullableDouble), "Segments" :: NullOrUndefined (SegmentList) }
+  = Trace { "Id" :: Maybe (TraceId), "Duration" :: Maybe (NullableDouble), "Segments" :: Maybe (SegmentList) }
 ```
 
 <p>A collection of segment documents with matching trace IDs.</p>
@@ -1299,7 +1299,7 @@ Constructs Trace from required parameters
 #### `newTrace'`
 
 ``` purescript
-newTrace' :: ({ "Id" :: NullOrUndefined (TraceId), "Duration" :: NullOrUndefined (NullableDouble), "Segments" :: NullOrUndefined (SegmentList) } -> { "Id" :: NullOrUndefined (TraceId), "Duration" :: NullOrUndefined (NullableDouble), "Segments" :: NullOrUndefined (SegmentList) }) -> Trace
+newTrace' :: ({ "Id" :: Maybe (TraceId), "Duration" :: Maybe (NullableDouble), "Segments" :: Maybe (SegmentList) } -> { "Id" :: Maybe (TraceId), "Duration" :: Maybe (NullableDouble), "Segments" :: Maybe (SegmentList) }) -> Trace
 ```
 
 Constructs Trace's fields from required parameters
@@ -1388,7 +1388,7 @@ Encode TraceSegmentDocumentList
 
 ``` purescript
 newtype TraceSummary
-  = TraceSummary { "Id" :: NullOrUndefined (TraceId), "Duration" :: NullOrUndefined (NullableDouble), "ResponseTime" :: NullOrUndefined (NullableDouble), "HasFault" :: NullOrUndefined (NullableBoolean), "HasError" :: NullOrUndefined (NullableBoolean), "HasThrottle" :: NullOrUndefined (NullableBoolean), "IsPartial" :: NullOrUndefined (NullableBoolean), "Http" :: NullOrUndefined (Http), "Annotations" :: NullOrUndefined (Annotations), "Users" :: NullOrUndefined (TraceUsers), "ServiceIds" :: NullOrUndefined (ServiceIds) }
+  = TraceSummary { "Id" :: Maybe (TraceId), "Duration" :: Maybe (NullableDouble), "ResponseTime" :: Maybe (NullableDouble), "HasFault" :: Maybe (NullableBoolean), "HasError" :: Maybe (NullableBoolean), "HasThrottle" :: Maybe (NullableBoolean), "IsPartial" :: Maybe (NullableBoolean), "Http" :: Maybe (Http), "Annotations" :: Maybe (Annotations), "Users" :: Maybe (TraceUsers), "ServiceIds" :: Maybe (ServiceIds) }
 ```
 
 <p>Metadata generated from the segment documents in a trace.</p>
@@ -1413,7 +1413,7 @@ Constructs TraceSummary from required parameters
 #### `newTraceSummary'`
 
 ``` purescript
-newTraceSummary' :: ({ "Id" :: NullOrUndefined (TraceId), "Duration" :: NullOrUndefined (NullableDouble), "ResponseTime" :: NullOrUndefined (NullableDouble), "HasFault" :: NullOrUndefined (NullableBoolean), "HasError" :: NullOrUndefined (NullableBoolean), "HasThrottle" :: NullOrUndefined (NullableBoolean), "IsPartial" :: NullOrUndefined (NullableBoolean), "Http" :: NullOrUndefined (Http), "Annotations" :: NullOrUndefined (Annotations), "Users" :: NullOrUndefined (TraceUsers), "ServiceIds" :: NullOrUndefined (ServiceIds) } -> { "Id" :: NullOrUndefined (TraceId), "Duration" :: NullOrUndefined (NullableDouble), "ResponseTime" :: NullOrUndefined (NullableDouble), "HasFault" :: NullOrUndefined (NullableBoolean), "HasError" :: NullOrUndefined (NullableBoolean), "HasThrottle" :: NullOrUndefined (NullableBoolean), "IsPartial" :: NullOrUndefined (NullableBoolean), "Http" :: NullOrUndefined (Http), "Annotations" :: NullOrUndefined (Annotations), "Users" :: NullOrUndefined (TraceUsers), "ServiceIds" :: NullOrUndefined (ServiceIds) }) -> TraceSummary
+newTraceSummary' :: ({ "Id" :: Maybe (TraceId), "Duration" :: Maybe (NullableDouble), "ResponseTime" :: Maybe (NullableDouble), "HasFault" :: Maybe (NullableBoolean), "HasError" :: Maybe (NullableBoolean), "HasThrottle" :: Maybe (NullableBoolean), "IsPartial" :: Maybe (NullableBoolean), "Http" :: Maybe (Http), "Annotations" :: Maybe (Annotations), "Users" :: Maybe (TraceUsers), "ServiceIds" :: Maybe (ServiceIds) } -> { "Id" :: Maybe (TraceId), "Duration" :: Maybe (NullableDouble), "ResponseTime" :: Maybe (NullableDouble), "HasFault" :: Maybe (NullableBoolean), "HasError" :: Maybe (NullableBoolean), "HasThrottle" :: Maybe (NullableBoolean), "IsPartial" :: Maybe (NullableBoolean), "Http" :: Maybe (Http), "Annotations" :: Maybe (Annotations), "Users" :: Maybe (TraceUsers), "ServiceIds" :: Maybe (ServiceIds) }) -> TraceSummary
 ```
 
 Constructs TraceSummary's fields from required parameters
@@ -1438,7 +1438,7 @@ Encode TraceSummaryList
 
 ``` purescript
 newtype TraceUser
-  = TraceUser { "UserName" :: NullOrUndefined (String), "ServiceIds" :: NullOrUndefined (ServiceIds) }
+  = TraceUser { "UserName" :: Maybe (String), "ServiceIds" :: Maybe (ServiceIds) }
 ```
 
 <p>Information about a user recorded in segment documents.</p>
@@ -1463,7 +1463,7 @@ Constructs TraceUser from required parameters
 #### `newTraceUser'`
 
 ``` purescript
-newTraceUser' :: ({ "UserName" :: NullOrUndefined (String), "ServiceIds" :: NullOrUndefined (ServiceIds) } -> { "UserName" :: NullOrUndefined (String), "ServiceIds" :: NullOrUndefined (ServiceIds) }) -> TraceUser
+newTraceUser' :: ({ "UserName" :: Maybe (String), "ServiceIds" :: Maybe (ServiceIds) } -> { "UserName" :: Maybe (String), "ServiceIds" :: Maybe (ServiceIds) }) -> TraceUser
 ```
 
 Constructs TraceUser's fields from required parameters
@@ -1504,7 +1504,7 @@ Encode UnprocessedTraceIdList
 
 ``` purescript
 newtype UnprocessedTraceSegment
-  = UnprocessedTraceSegment { "Id" :: NullOrUndefined (String), "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }
+  = UnprocessedTraceSegment { "Id" :: Maybe (String), "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }
 ```
 
 <p>Information about a segment that failed processing.</p>
@@ -1529,7 +1529,7 @@ Constructs UnprocessedTraceSegment from required parameters
 #### `newUnprocessedTraceSegment'`
 
 ``` purescript
-newUnprocessedTraceSegment' :: ({ "Id" :: NullOrUndefined (String), "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) } -> { "Id" :: NullOrUndefined (String), "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }) -> UnprocessedTraceSegment
+newUnprocessedTraceSegment' :: ({ "Id" :: Maybe (String), "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) } -> { "Id" :: Maybe (String), "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }) -> UnprocessedTraceSegment
 ```
 
 Constructs UnprocessedTraceSegment's fields from required parameters
@@ -1554,7 +1554,7 @@ Encode UnprocessedTraceSegmentList
 
 ``` purescript
 newtype ValueWithServiceIds
-  = ValueWithServiceIds { "AnnotationValue" :: NullOrUndefined (AnnotationValue), "ServiceIds" :: NullOrUndefined (ServiceIds) }
+  = ValueWithServiceIds { "AnnotationValue" :: Maybe (AnnotationValue), "ServiceIds" :: Maybe (ServiceIds) }
 ```
 
 <p>Information about a segment annotation.</p>
@@ -1579,7 +1579,7 @@ Constructs ValueWithServiceIds from required parameters
 #### `newValueWithServiceIds'`
 
 ``` purescript
-newValueWithServiceIds' :: ({ "AnnotationValue" :: NullOrUndefined (AnnotationValue), "ServiceIds" :: NullOrUndefined (ServiceIds) } -> { "AnnotationValue" :: NullOrUndefined (AnnotationValue), "ServiceIds" :: NullOrUndefined (ServiceIds) }) -> ValueWithServiceIds
+newValueWithServiceIds' :: ({ "AnnotationValue" :: Maybe (AnnotationValue), "ServiceIds" :: Maybe (ServiceIds) } -> { "AnnotationValue" :: Maybe (AnnotationValue), "ServiceIds" :: Maybe (ServiceIds) }) -> ValueWithServiceIds
 ```
 
 Constructs ValueWithServiceIds's fields from required parameters

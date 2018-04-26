@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,9 +19,9 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>An alias for an edge.</p>
 newtype Alias = Alias 
-  { "Name" :: NullOrUndefined (String)
-  , "Names" :: NullOrUndefined (AliasNames)
-  , "Type" :: NullOrUndefined (String)
+  { "Name" :: Maybe (String)
+  , "Names" :: Maybe (AliasNames)
+  , "Type" :: Maybe (String)
   }
 derive instance newtypeAlias :: Newtype Alias _
 derive instance repGenericAlias :: Generic Alias _
@@ -32,12 +31,12 @@ instance encodeAlias :: Encode Alias where encode = genericEncode options
 
 -- | Constructs Alias from required parameters
 newAlias :: Alias
-newAlias  = Alias { "Name": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newAlias  = Alias { "Name": Nothing, "Names": Nothing, "Type": Nothing }
 
 -- | Constructs Alias's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAlias' :: ( { "Name" :: NullOrUndefined (String) , "Names" :: NullOrUndefined (AliasNames) , "Type" :: NullOrUndefined (String) } -> {"Name" :: NullOrUndefined (String) , "Names" :: NullOrUndefined (AliasNames) , "Type" :: NullOrUndefined (String) } ) -> Alias
-newAlias'  customize = (Alias <<< customize) { "Name": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newAlias' :: ( { "Name" :: Maybe (String) , "Names" :: Maybe (AliasNames) , "Type" :: Maybe (String) } -> {"Name" :: Maybe (String) , "Names" :: Maybe (AliasNames) , "Type" :: Maybe (String) } ) -> Alias
+newAlias'  customize = (Alias <<< customize) { "Name": Nothing, "Names": Nothing, "Type": Nothing }
 
 
 
@@ -70,9 +69,9 @@ instance encodeAnnotationKey :: Encode AnnotationKey where encode = genericEncod
 
 -- | <p>Value of a segment annotation. Has one of three value types: Number, Boolean or String.</p>
 newtype AnnotationValue = AnnotationValue 
-  { "NumberValue" :: NullOrUndefined (NullableDouble)
-  , "BooleanValue" :: NullOrUndefined (NullableBoolean)
-  , "StringValue" :: NullOrUndefined (String)
+  { "NumberValue" :: Maybe (NullableDouble)
+  , "BooleanValue" :: Maybe (NullableBoolean)
+  , "StringValue" :: Maybe (String)
   }
 derive instance newtypeAnnotationValue :: Newtype AnnotationValue _
 derive instance repGenericAnnotationValue :: Generic AnnotationValue _
@@ -82,12 +81,12 @@ instance encodeAnnotationValue :: Encode AnnotationValue where encode = genericE
 
 -- | Constructs AnnotationValue from required parameters
 newAnnotationValue :: AnnotationValue
-newAnnotationValue  = AnnotationValue { "BooleanValue": (NullOrUndefined Nothing), "NumberValue": (NullOrUndefined Nothing), "StringValue": (NullOrUndefined Nothing) }
+newAnnotationValue  = AnnotationValue { "BooleanValue": Nothing, "NumberValue": Nothing, "StringValue": Nothing }
 
 -- | Constructs AnnotationValue's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAnnotationValue' :: ( { "NumberValue" :: NullOrUndefined (NullableDouble) , "BooleanValue" :: NullOrUndefined (NullableBoolean) , "StringValue" :: NullOrUndefined (String) } -> {"NumberValue" :: NullOrUndefined (NullableDouble) , "BooleanValue" :: NullOrUndefined (NullableBoolean) , "StringValue" :: NullOrUndefined (String) } ) -> AnnotationValue
-newAnnotationValue'  customize = (AnnotationValue <<< customize) { "BooleanValue": (NullOrUndefined Nothing), "NumberValue": (NullOrUndefined Nothing), "StringValue": (NullOrUndefined Nothing) }
+newAnnotationValue' :: ( { "NumberValue" :: Maybe (NullableDouble) , "BooleanValue" :: Maybe (NullableBoolean) , "StringValue" :: Maybe (String) } -> {"NumberValue" :: Maybe (NullableDouble) , "BooleanValue" :: Maybe (NullableBoolean) , "StringValue" :: Maybe (String) } ) -> AnnotationValue
+newAnnotationValue'  customize = (AnnotationValue <<< customize) { "BooleanValue": Nothing, "NumberValue": Nothing, "StringValue": Nothing }
 
 
 
@@ -102,12 +101,12 @@ instance encodeAnnotations :: Encode Annotations where encode = genericEncode op
 
 -- | <p/>
 newtype BackendConnectionErrors = BackendConnectionErrors 
-  { "TimeoutCount" :: NullOrUndefined (NullableInteger)
-  , "ConnectionRefusedCount" :: NullOrUndefined (NullableInteger)
-  , "HTTPCode4XXCount" :: NullOrUndefined (NullableInteger)
-  , "HTTPCode5XXCount" :: NullOrUndefined (NullableInteger)
-  , "UnknownHostCount" :: NullOrUndefined (NullableInteger)
-  , "OtherCount" :: NullOrUndefined (NullableInteger)
+  { "TimeoutCount" :: Maybe (NullableInteger)
+  , "ConnectionRefusedCount" :: Maybe (NullableInteger)
+  , "HTTPCode4XXCount" :: Maybe (NullableInteger)
+  , "HTTPCode5XXCount" :: Maybe (NullableInteger)
+  , "UnknownHostCount" :: Maybe (NullableInteger)
+  , "OtherCount" :: Maybe (NullableInteger)
   }
 derive instance newtypeBackendConnectionErrors :: Newtype BackendConnectionErrors _
 derive instance repGenericBackendConnectionErrors :: Generic BackendConnectionErrors _
@@ -117,18 +116,18 @@ instance encodeBackendConnectionErrors :: Encode BackendConnectionErrors where e
 
 -- | Constructs BackendConnectionErrors from required parameters
 newBackendConnectionErrors :: BackendConnectionErrors
-newBackendConnectionErrors  = BackendConnectionErrors { "ConnectionRefusedCount": (NullOrUndefined Nothing), "HTTPCode4XXCount": (NullOrUndefined Nothing), "HTTPCode5XXCount": (NullOrUndefined Nothing), "OtherCount": (NullOrUndefined Nothing), "TimeoutCount": (NullOrUndefined Nothing), "UnknownHostCount": (NullOrUndefined Nothing) }
+newBackendConnectionErrors  = BackendConnectionErrors { "ConnectionRefusedCount": Nothing, "HTTPCode4XXCount": Nothing, "HTTPCode5XXCount": Nothing, "OtherCount": Nothing, "TimeoutCount": Nothing, "UnknownHostCount": Nothing }
 
 -- | Constructs BackendConnectionErrors's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBackendConnectionErrors' :: ( { "TimeoutCount" :: NullOrUndefined (NullableInteger) , "ConnectionRefusedCount" :: NullOrUndefined (NullableInteger) , "HTTPCode4XXCount" :: NullOrUndefined (NullableInteger) , "HTTPCode5XXCount" :: NullOrUndefined (NullableInteger) , "UnknownHostCount" :: NullOrUndefined (NullableInteger) , "OtherCount" :: NullOrUndefined (NullableInteger) } -> {"TimeoutCount" :: NullOrUndefined (NullableInteger) , "ConnectionRefusedCount" :: NullOrUndefined (NullableInteger) , "HTTPCode4XXCount" :: NullOrUndefined (NullableInteger) , "HTTPCode5XXCount" :: NullOrUndefined (NullableInteger) , "UnknownHostCount" :: NullOrUndefined (NullableInteger) , "OtherCount" :: NullOrUndefined (NullableInteger) } ) -> BackendConnectionErrors
-newBackendConnectionErrors'  customize = (BackendConnectionErrors <<< customize) { "ConnectionRefusedCount": (NullOrUndefined Nothing), "HTTPCode4XXCount": (NullOrUndefined Nothing), "HTTPCode5XXCount": (NullOrUndefined Nothing), "OtherCount": (NullOrUndefined Nothing), "TimeoutCount": (NullOrUndefined Nothing), "UnknownHostCount": (NullOrUndefined Nothing) }
+newBackendConnectionErrors' :: ( { "TimeoutCount" :: Maybe (NullableInteger) , "ConnectionRefusedCount" :: Maybe (NullableInteger) , "HTTPCode4XXCount" :: Maybe (NullableInteger) , "HTTPCode5XXCount" :: Maybe (NullableInteger) , "UnknownHostCount" :: Maybe (NullableInteger) , "OtherCount" :: Maybe (NullableInteger) } -> {"TimeoutCount" :: Maybe (NullableInteger) , "ConnectionRefusedCount" :: Maybe (NullableInteger) , "HTTPCode4XXCount" :: Maybe (NullableInteger) , "HTTPCode5XXCount" :: Maybe (NullableInteger) , "UnknownHostCount" :: Maybe (NullableInteger) , "OtherCount" :: Maybe (NullableInteger) } ) -> BackendConnectionErrors
+newBackendConnectionErrors'  customize = (BackendConnectionErrors <<< customize) { "ConnectionRefusedCount": Nothing, "HTTPCode4XXCount": Nothing, "HTTPCode5XXCount": Nothing, "OtherCount": Nothing, "TimeoutCount": Nothing, "UnknownHostCount": Nothing }
 
 
 
 newtype BatchGetTracesRequest = BatchGetTracesRequest 
   { "TraceIds" :: (TraceIdList)
-  , "NextToken" :: NullOrUndefined (String)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeBatchGetTracesRequest :: Newtype BatchGetTracesRequest _
 derive instance repGenericBatchGetTracesRequest :: Generic BatchGetTracesRequest _
@@ -138,19 +137,19 @@ instance encodeBatchGetTracesRequest :: Encode BatchGetTracesRequest where encod
 
 -- | Constructs BatchGetTracesRequest from required parameters
 newBatchGetTracesRequest :: TraceIdList -> BatchGetTracesRequest
-newBatchGetTracesRequest _TraceIds = BatchGetTracesRequest { "TraceIds": _TraceIds, "NextToken": (NullOrUndefined Nothing) }
+newBatchGetTracesRequest _TraceIds = BatchGetTracesRequest { "TraceIds": _TraceIds, "NextToken": Nothing }
 
 -- | Constructs BatchGetTracesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBatchGetTracesRequest' :: TraceIdList -> ( { "TraceIds" :: (TraceIdList) , "NextToken" :: NullOrUndefined (String) } -> {"TraceIds" :: (TraceIdList) , "NextToken" :: NullOrUndefined (String) } ) -> BatchGetTracesRequest
-newBatchGetTracesRequest' _TraceIds customize = (BatchGetTracesRequest <<< customize) { "TraceIds": _TraceIds, "NextToken": (NullOrUndefined Nothing) }
+newBatchGetTracesRequest' :: TraceIdList -> ( { "TraceIds" :: (TraceIdList) , "NextToken" :: Maybe (String) } -> {"TraceIds" :: (TraceIdList) , "NextToken" :: Maybe (String) } ) -> BatchGetTracesRequest
+newBatchGetTracesRequest' _TraceIds customize = (BatchGetTracesRequest <<< customize) { "TraceIds": _TraceIds, "NextToken": Nothing }
 
 
 
 newtype BatchGetTracesResult = BatchGetTracesResult 
-  { "Traces" :: NullOrUndefined (TraceList)
-  , "UnprocessedTraceIds" :: NullOrUndefined (UnprocessedTraceIdList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Traces" :: Maybe (TraceList)
+  , "UnprocessedTraceIds" :: Maybe (UnprocessedTraceIdList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeBatchGetTracesResult :: Newtype BatchGetTracesResult _
 derive instance repGenericBatchGetTracesResult :: Generic BatchGetTracesResult _
@@ -160,12 +159,12 @@ instance encodeBatchGetTracesResult :: Encode BatchGetTracesResult where encode 
 
 -- | Constructs BatchGetTracesResult from required parameters
 newBatchGetTracesResult :: BatchGetTracesResult
-newBatchGetTracesResult  = BatchGetTracesResult { "NextToken": (NullOrUndefined Nothing), "Traces": (NullOrUndefined Nothing), "UnprocessedTraceIds": (NullOrUndefined Nothing) }
+newBatchGetTracesResult  = BatchGetTracesResult { "NextToken": Nothing, "Traces": Nothing, "UnprocessedTraceIds": Nothing }
 
 -- | Constructs BatchGetTracesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBatchGetTracesResult' :: ( { "Traces" :: NullOrUndefined (TraceList) , "UnprocessedTraceIds" :: NullOrUndefined (UnprocessedTraceIdList) , "NextToken" :: NullOrUndefined (String) } -> {"Traces" :: NullOrUndefined (TraceList) , "UnprocessedTraceIds" :: NullOrUndefined (UnprocessedTraceIdList) , "NextToken" :: NullOrUndefined (String) } ) -> BatchGetTracesResult
-newBatchGetTracesResult'  customize = (BatchGetTracesResult <<< customize) { "NextToken": (NullOrUndefined Nothing), "Traces": (NullOrUndefined Nothing), "UnprocessedTraceIds": (NullOrUndefined Nothing) }
+newBatchGetTracesResult' :: ( { "Traces" :: Maybe (TraceList) , "UnprocessedTraceIds" :: Maybe (UnprocessedTraceIdList) , "NextToken" :: Maybe (String) } -> {"Traces" :: Maybe (TraceList) , "UnprocessedTraceIds" :: Maybe (UnprocessedTraceIdList) , "NextToken" :: Maybe (String) } ) -> BatchGetTracesResult
+newBatchGetTracesResult'  customize = (BatchGetTracesResult <<< customize) { "NextToken": Nothing, "Traces": Nothing, "UnprocessedTraceIds": Nothing }
 
 
 
@@ -180,12 +179,12 @@ instance encodeEC2InstanceId :: Encode EC2InstanceId where encode = genericEncod
 
 -- | <p>Information about a connection between two services.</p>
 newtype Edge = Edge 
-  { "ReferenceId" :: NullOrUndefined (NullableInteger)
-  , "StartTime" :: NullOrUndefined (Types.Timestamp)
-  , "EndTime" :: NullOrUndefined (Types.Timestamp)
-  , "SummaryStatistics" :: NullOrUndefined (EdgeStatistics)
-  , "ResponseTimeHistogram" :: NullOrUndefined (Histogram)
-  , "Aliases" :: NullOrUndefined (AliasList)
+  { "ReferenceId" :: Maybe (NullableInteger)
+  , "StartTime" :: Maybe (Types.Timestamp)
+  , "EndTime" :: Maybe (Types.Timestamp)
+  , "SummaryStatistics" :: Maybe (EdgeStatistics)
+  , "ResponseTimeHistogram" :: Maybe (Histogram)
+  , "Aliases" :: Maybe (AliasList)
   }
 derive instance newtypeEdge :: Newtype Edge _
 derive instance repGenericEdge :: Generic Edge _
@@ -195,12 +194,12 @@ instance encodeEdge :: Encode Edge where encode = genericEncode options
 
 -- | Constructs Edge from required parameters
 newEdge :: Edge
-newEdge  = Edge { "Aliases": (NullOrUndefined Nothing), "EndTime": (NullOrUndefined Nothing), "ReferenceId": (NullOrUndefined Nothing), "ResponseTimeHistogram": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing), "SummaryStatistics": (NullOrUndefined Nothing) }
+newEdge  = Edge { "Aliases": Nothing, "EndTime": Nothing, "ReferenceId": Nothing, "ResponseTimeHistogram": Nothing, "StartTime": Nothing, "SummaryStatistics": Nothing }
 
 -- | Constructs Edge's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEdge' :: ( { "ReferenceId" :: NullOrUndefined (NullableInteger) , "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "SummaryStatistics" :: NullOrUndefined (EdgeStatistics) , "ResponseTimeHistogram" :: NullOrUndefined (Histogram) , "Aliases" :: NullOrUndefined (AliasList) } -> {"ReferenceId" :: NullOrUndefined (NullableInteger) , "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "SummaryStatistics" :: NullOrUndefined (EdgeStatistics) , "ResponseTimeHistogram" :: NullOrUndefined (Histogram) , "Aliases" :: NullOrUndefined (AliasList) } ) -> Edge
-newEdge'  customize = (Edge <<< customize) { "Aliases": (NullOrUndefined Nothing), "EndTime": (NullOrUndefined Nothing), "ReferenceId": (NullOrUndefined Nothing), "ResponseTimeHistogram": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing), "SummaryStatistics": (NullOrUndefined Nothing) }
+newEdge' :: ( { "ReferenceId" :: Maybe (NullableInteger) , "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "SummaryStatistics" :: Maybe (EdgeStatistics) , "ResponseTimeHistogram" :: Maybe (Histogram) , "Aliases" :: Maybe (AliasList) } -> {"ReferenceId" :: Maybe (NullableInteger) , "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "SummaryStatistics" :: Maybe (EdgeStatistics) , "ResponseTimeHistogram" :: Maybe (Histogram) , "Aliases" :: Maybe (AliasList) } ) -> Edge
+newEdge'  customize = (Edge <<< customize) { "Aliases": Nothing, "EndTime": Nothing, "ReferenceId": Nothing, "ResponseTimeHistogram": Nothing, "StartTime": Nothing, "SummaryStatistics": Nothing }
 
 
 
@@ -215,11 +214,11 @@ instance encodeEdgeList :: Encode EdgeList where encode = genericEncode options
 
 -- | <p>Response statistics for an edge.</p>
 newtype EdgeStatistics = EdgeStatistics 
-  { "OkCount" :: NullOrUndefined (NullableLong)
-  , "ErrorStatistics" :: NullOrUndefined (ErrorStatistics)
-  , "FaultStatistics" :: NullOrUndefined (FaultStatistics)
-  , "TotalCount" :: NullOrUndefined (NullableLong)
-  , "TotalResponseTime" :: NullOrUndefined (NullableDouble)
+  { "OkCount" :: Maybe (NullableLong)
+  , "ErrorStatistics" :: Maybe (ErrorStatistics)
+  , "FaultStatistics" :: Maybe (FaultStatistics)
+  , "TotalCount" :: Maybe (NullableLong)
+  , "TotalResponseTime" :: Maybe (NullableDouble)
   }
 derive instance newtypeEdgeStatistics :: Newtype EdgeStatistics _
 derive instance repGenericEdgeStatistics :: Generic EdgeStatistics _
@@ -229,12 +228,12 @@ instance encodeEdgeStatistics :: Encode EdgeStatistics where encode = genericEnc
 
 -- | Constructs EdgeStatistics from required parameters
 newEdgeStatistics :: EdgeStatistics
-newEdgeStatistics  = EdgeStatistics { "ErrorStatistics": (NullOrUndefined Nothing), "FaultStatistics": (NullOrUndefined Nothing), "OkCount": (NullOrUndefined Nothing), "TotalCount": (NullOrUndefined Nothing), "TotalResponseTime": (NullOrUndefined Nothing) }
+newEdgeStatistics  = EdgeStatistics { "ErrorStatistics": Nothing, "FaultStatistics": Nothing, "OkCount": Nothing, "TotalCount": Nothing, "TotalResponseTime": Nothing }
 
 -- | Constructs EdgeStatistics's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEdgeStatistics' :: ( { "OkCount" :: NullOrUndefined (NullableLong) , "ErrorStatistics" :: NullOrUndefined (ErrorStatistics) , "FaultStatistics" :: NullOrUndefined (FaultStatistics) , "TotalCount" :: NullOrUndefined (NullableLong) , "TotalResponseTime" :: NullOrUndefined (NullableDouble) } -> {"OkCount" :: NullOrUndefined (NullableLong) , "ErrorStatistics" :: NullOrUndefined (ErrorStatistics) , "FaultStatistics" :: NullOrUndefined (FaultStatistics) , "TotalCount" :: NullOrUndefined (NullableLong) , "TotalResponseTime" :: NullOrUndefined (NullableDouble) } ) -> EdgeStatistics
-newEdgeStatistics'  customize = (EdgeStatistics <<< customize) { "ErrorStatistics": (NullOrUndefined Nothing), "FaultStatistics": (NullOrUndefined Nothing), "OkCount": (NullOrUndefined Nothing), "TotalCount": (NullOrUndefined Nothing), "TotalResponseTime": (NullOrUndefined Nothing) }
+newEdgeStatistics' :: ( { "OkCount" :: Maybe (NullableLong) , "ErrorStatistics" :: Maybe (ErrorStatistics) , "FaultStatistics" :: Maybe (FaultStatistics) , "TotalCount" :: Maybe (NullableLong) , "TotalResponseTime" :: Maybe (NullableDouble) } -> {"OkCount" :: Maybe (NullableLong) , "ErrorStatistics" :: Maybe (ErrorStatistics) , "FaultStatistics" :: Maybe (FaultStatistics) , "TotalCount" :: Maybe (NullableLong) , "TotalResponseTime" :: Maybe (NullableDouble) } ) -> EdgeStatistics
+newEdgeStatistics'  customize = (EdgeStatistics <<< customize) { "ErrorStatistics": Nothing, "FaultStatistics": Nothing, "OkCount": Nothing, "TotalCount": Nothing, "TotalResponseTime": Nothing }
 
 
 
@@ -249,9 +248,9 @@ instance encodeErrorMessage :: Encode ErrorMessage where encode = genericEncode 
 
 -- | <p>Information about requests that failed with a 4xx Client Error status code.</p>
 newtype ErrorStatistics = ErrorStatistics 
-  { "ThrottleCount" :: NullOrUndefined (NullableLong)
-  , "OtherCount" :: NullOrUndefined (NullableLong)
-  , "TotalCount" :: NullOrUndefined (NullableLong)
+  { "ThrottleCount" :: Maybe (NullableLong)
+  , "OtherCount" :: Maybe (NullableLong)
+  , "TotalCount" :: Maybe (NullableLong)
   }
 derive instance newtypeErrorStatistics :: Newtype ErrorStatistics _
 derive instance repGenericErrorStatistics :: Generic ErrorStatistics _
@@ -261,19 +260,19 @@ instance encodeErrorStatistics :: Encode ErrorStatistics where encode = genericE
 
 -- | Constructs ErrorStatistics from required parameters
 newErrorStatistics :: ErrorStatistics
-newErrorStatistics  = ErrorStatistics { "OtherCount": (NullOrUndefined Nothing), "ThrottleCount": (NullOrUndefined Nothing), "TotalCount": (NullOrUndefined Nothing) }
+newErrorStatistics  = ErrorStatistics { "OtherCount": Nothing, "ThrottleCount": Nothing, "TotalCount": Nothing }
 
 -- | Constructs ErrorStatistics's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newErrorStatistics' :: ( { "ThrottleCount" :: NullOrUndefined (NullableLong) , "OtherCount" :: NullOrUndefined (NullableLong) , "TotalCount" :: NullOrUndefined (NullableLong) } -> {"ThrottleCount" :: NullOrUndefined (NullableLong) , "OtherCount" :: NullOrUndefined (NullableLong) , "TotalCount" :: NullOrUndefined (NullableLong) } ) -> ErrorStatistics
-newErrorStatistics'  customize = (ErrorStatistics <<< customize) { "OtherCount": (NullOrUndefined Nothing), "ThrottleCount": (NullOrUndefined Nothing), "TotalCount": (NullOrUndefined Nothing) }
+newErrorStatistics' :: ( { "ThrottleCount" :: Maybe (NullableLong) , "OtherCount" :: Maybe (NullableLong) , "TotalCount" :: Maybe (NullableLong) } -> {"ThrottleCount" :: Maybe (NullableLong) , "OtherCount" :: Maybe (NullableLong) , "TotalCount" :: Maybe (NullableLong) } ) -> ErrorStatistics
+newErrorStatistics'  customize = (ErrorStatistics <<< customize) { "OtherCount": Nothing, "ThrottleCount": Nothing, "TotalCount": Nothing }
 
 
 
 -- | <p>Information about requests that failed with a 5xx Server Error status code.</p>
 newtype FaultStatistics = FaultStatistics 
-  { "OtherCount" :: NullOrUndefined (NullableLong)
-  , "TotalCount" :: NullOrUndefined (NullableLong)
+  { "OtherCount" :: Maybe (NullableLong)
+  , "TotalCount" :: Maybe (NullableLong)
   }
 derive instance newtypeFaultStatistics :: Newtype FaultStatistics _
 derive instance repGenericFaultStatistics :: Generic FaultStatistics _
@@ -283,12 +282,12 @@ instance encodeFaultStatistics :: Encode FaultStatistics where encode = genericE
 
 -- | Constructs FaultStatistics from required parameters
 newFaultStatistics :: FaultStatistics
-newFaultStatistics  = FaultStatistics { "OtherCount": (NullOrUndefined Nothing), "TotalCount": (NullOrUndefined Nothing) }
+newFaultStatistics  = FaultStatistics { "OtherCount": Nothing, "TotalCount": Nothing }
 
 -- | Constructs FaultStatistics's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFaultStatistics' :: ( { "OtherCount" :: NullOrUndefined (NullableLong) , "TotalCount" :: NullOrUndefined (NullableLong) } -> {"OtherCount" :: NullOrUndefined (NullableLong) , "TotalCount" :: NullOrUndefined (NullableLong) } ) -> FaultStatistics
-newFaultStatistics'  customize = (FaultStatistics <<< customize) { "OtherCount": (NullOrUndefined Nothing), "TotalCount": (NullOrUndefined Nothing) }
+newFaultStatistics' :: ( { "OtherCount" :: Maybe (NullableLong) , "TotalCount" :: Maybe (NullableLong) } -> {"OtherCount" :: Maybe (NullableLong) , "TotalCount" :: Maybe (NullableLong) } ) -> FaultStatistics
+newFaultStatistics'  customize = (FaultStatistics <<< customize) { "OtherCount": Nothing, "TotalCount": Nothing }
 
 
 
@@ -304,7 +303,7 @@ instance encodeFilterExpression :: Encode FilterExpression where encode = generi
 newtype GetServiceGraphRequest = GetServiceGraphRequest 
   { "StartTime" :: (Types.Timestamp)
   , "EndTime" :: (Types.Timestamp)
-  , "NextToken" :: NullOrUndefined (String)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeGetServiceGraphRequest :: Newtype GetServiceGraphRequest _
 derive instance repGenericGetServiceGraphRequest :: Generic GetServiceGraphRequest _
@@ -314,20 +313,20 @@ instance encodeGetServiceGraphRequest :: Encode GetServiceGraphRequest where enc
 
 -- | Constructs GetServiceGraphRequest from required parameters
 newGetServiceGraphRequest :: Types.Timestamp -> Types.Timestamp -> GetServiceGraphRequest
-newGetServiceGraphRequest _EndTime _StartTime = GetServiceGraphRequest { "EndTime": _EndTime, "StartTime": _StartTime, "NextToken": (NullOrUndefined Nothing) }
+newGetServiceGraphRequest _EndTime _StartTime = GetServiceGraphRequest { "EndTime": _EndTime, "StartTime": _StartTime, "NextToken": Nothing }
 
 -- | Constructs GetServiceGraphRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetServiceGraphRequest' :: Types.Timestamp -> Types.Timestamp -> ( { "StartTime" :: (Types.Timestamp) , "EndTime" :: (Types.Timestamp) , "NextToken" :: NullOrUndefined (String) } -> {"StartTime" :: (Types.Timestamp) , "EndTime" :: (Types.Timestamp) , "NextToken" :: NullOrUndefined (String) } ) -> GetServiceGraphRequest
-newGetServiceGraphRequest' _EndTime _StartTime customize = (GetServiceGraphRequest <<< customize) { "EndTime": _EndTime, "StartTime": _StartTime, "NextToken": (NullOrUndefined Nothing) }
+newGetServiceGraphRequest' :: Types.Timestamp -> Types.Timestamp -> ( { "StartTime" :: (Types.Timestamp) , "EndTime" :: (Types.Timestamp) , "NextToken" :: Maybe (String) } -> {"StartTime" :: (Types.Timestamp) , "EndTime" :: (Types.Timestamp) , "NextToken" :: Maybe (String) } ) -> GetServiceGraphRequest
+newGetServiceGraphRequest' _EndTime _StartTime customize = (GetServiceGraphRequest <<< customize) { "EndTime": _EndTime, "StartTime": _StartTime, "NextToken": Nothing }
 
 
 
 newtype GetServiceGraphResult = GetServiceGraphResult 
-  { "StartTime" :: NullOrUndefined (Types.Timestamp)
-  , "EndTime" :: NullOrUndefined (Types.Timestamp)
-  , "Services" :: NullOrUndefined (ServiceList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "StartTime" :: Maybe (Types.Timestamp)
+  , "EndTime" :: Maybe (Types.Timestamp)
+  , "Services" :: Maybe (ServiceList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeGetServiceGraphResult :: Newtype GetServiceGraphResult _
 derive instance repGenericGetServiceGraphResult :: Generic GetServiceGraphResult _
@@ -337,18 +336,18 @@ instance encodeGetServiceGraphResult :: Encode GetServiceGraphResult where encod
 
 -- | Constructs GetServiceGraphResult from required parameters
 newGetServiceGraphResult :: GetServiceGraphResult
-newGetServiceGraphResult  = GetServiceGraphResult { "EndTime": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Services": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newGetServiceGraphResult  = GetServiceGraphResult { "EndTime": Nothing, "NextToken": Nothing, "Services": Nothing, "StartTime": Nothing }
 
 -- | Constructs GetServiceGraphResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetServiceGraphResult' :: ( { "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "Services" :: NullOrUndefined (ServiceList) , "NextToken" :: NullOrUndefined (String) } -> {"StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "Services" :: NullOrUndefined (ServiceList) , "NextToken" :: NullOrUndefined (String) } ) -> GetServiceGraphResult
-newGetServiceGraphResult'  customize = (GetServiceGraphResult <<< customize) { "EndTime": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Services": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newGetServiceGraphResult' :: ( { "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "Services" :: Maybe (ServiceList) , "NextToken" :: Maybe (String) } -> {"StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "Services" :: Maybe (ServiceList) , "NextToken" :: Maybe (String) } ) -> GetServiceGraphResult
+newGetServiceGraphResult'  customize = (GetServiceGraphResult <<< customize) { "EndTime": Nothing, "NextToken": Nothing, "Services": Nothing, "StartTime": Nothing }
 
 
 
 newtype GetTraceGraphRequest = GetTraceGraphRequest 
   { "TraceIds" :: (TraceIdList)
-  , "NextToken" :: NullOrUndefined (String)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeGetTraceGraphRequest :: Newtype GetTraceGraphRequest _
 derive instance repGenericGetTraceGraphRequest :: Generic GetTraceGraphRequest _
@@ -358,18 +357,18 @@ instance encodeGetTraceGraphRequest :: Encode GetTraceGraphRequest where encode 
 
 -- | Constructs GetTraceGraphRequest from required parameters
 newGetTraceGraphRequest :: TraceIdList -> GetTraceGraphRequest
-newGetTraceGraphRequest _TraceIds = GetTraceGraphRequest { "TraceIds": _TraceIds, "NextToken": (NullOrUndefined Nothing) }
+newGetTraceGraphRequest _TraceIds = GetTraceGraphRequest { "TraceIds": _TraceIds, "NextToken": Nothing }
 
 -- | Constructs GetTraceGraphRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTraceGraphRequest' :: TraceIdList -> ( { "TraceIds" :: (TraceIdList) , "NextToken" :: NullOrUndefined (String) } -> {"TraceIds" :: (TraceIdList) , "NextToken" :: NullOrUndefined (String) } ) -> GetTraceGraphRequest
-newGetTraceGraphRequest' _TraceIds customize = (GetTraceGraphRequest <<< customize) { "TraceIds": _TraceIds, "NextToken": (NullOrUndefined Nothing) }
+newGetTraceGraphRequest' :: TraceIdList -> ( { "TraceIds" :: (TraceIdList) , "NextToken" :: Maybe (String) } -> {"TraceIds" :: (TraceIdList) , "NextToken" :: Maybe (String) } ) -> GetTraceGraphRequest
+newGetTraceGraphRequest' _TraceIds customize = (GetTraceGraphRequest <<< customize) { "TraceIds": _TraceIds, "NextToken": Nothing }
 
 
 
 newtype GetTraceGraphResult = GetTraceGraphResult 
-  { "Services" :: NullOrUndefined (ServiceList)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Services" :: Maybe (ServiceList)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeGetTraceGraphResult :: Newtype GetTraceGraphResult _
 derive instance repGenericGetTraceGraphResult :: Generic GetTraceGraphResult _
@@ -379,21 +378,21 @@ instance encodeGetTraceGraphResult :: Encode GetTraceGraphResult where encode = 
 
 -- | Constructs GetTraceGraphResult from required parameters
 newGetTraceGraphResult :: GetTraceGraphResult
-newGetTraceGraphResult  = GetTraceGraphResult { "NextToken": (NullOrUndefined Nothing), "Services": (NullOrUndefined Nothing) }
+newGetTraceGraphResult  = GetTraceGraphResult { "NextToken": Nothing, "Services": Nothing }
 
 -- | Constructs GetTraceGraphResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTraceGraphResult' :: ( { "Services" :: NullOrUndefined (ServiceList) , "NextToken" :: NullOrUndefined (String) } -> {"Services" :: NullOrUndefined (ServiceList) , "NextToken" :: NullOrUndefined (String) } ) -> GetTraceGraphResult
-newGetTraceGraphResult'  customize = (GetTraceGraphResult <<< customize) { "NextToken": (NullOrUndefined Nothing), "Services": (NullOrUndefined Nothing) }
+newGetTraceGraphResult' :: ( { "Services" :: Maybe (ServiceList) , "NextToken" :: Maybe (String) } -> {"Services" :: Maybe (ServiceList) , "NextToken" :: Maybe (String) } ) -> GetTraceGraphResult
+newGetTraceGraphResult'  customize = (GetTraceGraphResult <<< customize) { "NextToken": Nothing, "Services": Nothing }
 
 
 
 newtype GetTraceSummariesRequest = GetTraceSummariesRequest 
   { "StartTime" :: (Types.Timestamp)
   , "EndTime" :: (Types.Timestamp)
-  , "Sampling" :: NullOrUndefined (NullableBoolean)
-  , "FilterExpression" :: NullOrUndefined (FilterExpression)
-  , "NextToken" :: NullOrUndefined (String)
+  , "Sampling" :: Maybe (NullableBoolean)
+  , "FilterExpression" :: Maybe (FilterExpression)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeGetTraceSummariesRequest :: Newtype GetTraceSummariesRequest _
 derive instance repGenericGetTraceSummariesRequest :: Generic GetTraceSummariesRequest _
@@ -403,20 +402,20 @@ instance encodeGetTraceSummariesRequest :: Encode GetTraceSummariesRequest where
 
 -- | Constructs GetTraceSummariesRequest from required parameters
 newGetTraceSummariesRequest :: Types.Timestamp -> Types.Timestamp -> GetTraceSummariesRequest
-newGetTraceSummariesRequest _EndTime _StartTime = GetTraceSummariesRequest { "EndTime": _EndTime, "StartTime": _StartTime, "FilterExpression": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Sampling": (NullOrUndefined Nothing) }
+newGetTraceSummariesRequest _EndTime _StartTime = GetTraceSummariesRequest { "EndTime": _EndTime, "StartTime": _StartTime, "FilterExpression": Nothing, "NextToken": Nothing, "Sampling": Nothing }
 
 -- | Constructs GetTraceSummariesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTraceSummariesRequest' :: Types.Timestamp -> Types.Timestamp -> ( { "StartTime" :: (Types.Timestamp) , "EndTime" :: (Types.Timestamp) , "Sampling" :: NullOrUndefined (NullableBoolean) , "FilterExpression" :: NullOrUndefined (FilterExpression) , "NextToken" :: NullOrUndefined (String) } -> {"StartTime" :: (Types.Timestamp) , "EndTime" :: (Types.Timestamp) , "Sampling" :: NullOrUndefined (NullableBoolean) , "FilterExpression" :: NullOrUndefined (FilterExpression) , "NextToken" :: NullOrUndefined (String) } ) -> GetTraceSummariesRequest
-newGetTraceSummariesRequest' _EndTime _StartTime customize = (GetTraceSummariesRequest <<< customize) { "EndTime": _EndTime, "StartTime": _StartTime, "FilterExpression": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "Sampling": (NullOrUndefined Nothing) }
+newGetTraceSummariesRequest' :: Types.Timestamp -> Types.Timestamp -> ( { "StartTime" :: (Types.Timestamp) , "EndTime" :: (Types.Timestamp) , "Sampling" :: Maybe (NullableBoolean) , "FilterExpression" :: Maybe (FilterExpression) , "NextToken" :: Maybe (String) } -> {"StartTime" :: (Types.Timestamp) , "EndTime" :: (Types.Timestamp) , "Sampling" :: Maybe (NullableBoolean) , "FilterExpression" :: Maybe (FilterExpression) , "NextToken" :: Maybe (String) } ) -> GetTraceSummariesRequest
+newGetTraceSummariesRequest' _EndTime _StartTime customize = (GetTraceSummariesRequest <<< customize) { "EndTime": _EndTime, "StartTime": _StartTime, "FilterExpression": Nothing, "NextToken": Nothing, "Sampling": Nothing }
 
 
 
 newtype GetTraceSummariesResult = GetTraceSummariesResult 
-  { "TraceSummaries" :: NullOrUndefined (TraceSummaryList)
-  , "ApproximateTime" :: NullOrUndefined (Types.Timestamp)
-  , "TracesProcessedCount" :: NullOrUndefined (NullableLong)
-  , "NextToken" :: NullOrUndefined (String)
+  { "TraceSummaries" :: Maybe (TraceSummaryList)
+  , "ApproximateTime" :: Maybe (Types.Timestamp)
+  , "TracesProcessedCount" :: Maybe (NullableLong)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeGetTraceSummariesResult :: Newtype GetTraceSummariesResult _
 derive instance repGenericGetTraceSummariesResult :: Generic GetTraceSummariesResult _
@@ -426,12 +425,12 @@ instance encodeGetTraceSummariesResult :: Encode GetTraceSummariesResult where e
 
 -- | Constructs GetTraceSummariesResult from required parameters
 newGetTraceSummariesResult :: GetTraceSummariesResult
-newGetTraceSummariesResult  = GetTraceSummariesResult { "ApproximateTime": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "TraceSummaries": (NullOrUndefined Nothing), "TracesProcessedCount": (NullOrUndefined Nothing) }
+newGetTraceSummariesResult  = GetTraceSummariesResult { "ApproximateTime": Nothing, "NextToken": Nothing, "TraceSummaries": Nothing, "TracesProcessedCount": Nothing }
 
 -- | Constructs GetTraceSummariesResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTraceSummariesResult' :: ( { "TraceSummaries" :: NullOrUndefined (TraceSummaryList) , "ApproximateTime" :: NullOrUndefined (Types.Timestamp) , "TracesProcessedCount" :: NullOrUndefined (NullableLong) , "NextToken" :: NullOrUndefined (String) } -> {"TraceSummaries" :: NullOrUndefined (TraceSummaryList) , "ApproximateTime" :: NullOrUndefined (Types.Timestamp) , "TracesProcessedCount" :: NullOrUndefined (NullableLong) , "NextToken" :: NullOrUndefined (String) } ) -> GetTraceSummariesResult
-newGetTraceSummariesResult'  customize = (GetTraceSummariesResult <<< customize) { "ApproximateTime": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "TraceSummaries": (NullOrUndefined Nothing), "TracesProcessedCount": (NullOrUndefined Nothing) }
+newGetTraceSummariesResult' :: ( { "TraceSummaries" :: Maybe (TraceSummaryList) , "ApproximateTime" :: Maybe (Types.Timestamp) , "TracesProcessedCount" :: Maybe (NullableLong) , "NextToken" :: Maybe (String) } -> {"TraceSummaries" :: Maybe (TraceSummaryList) , "ApproximateTime" :: Maybe (Types.Timestamp) , "TracesProcessedCount" :: Maybe (NullableLong) , "NextToken" :: Maybe (String) } ) -> GetTraceSummariesResult
+newGetTraceSummariesResult'  customize = (GetTraceSummariesResult <<< customize) { "ApproximateTime": Nothing, "NextToken": Nothing, "TraceSummaries": Nothing, "TracesProcessedCount": Nothing }
 
 
 
@@ -446,8 +445,8 @@ instance encodeHistogram :: Encode Histogram where encode = genericEncode option
 
 -- | <p>An entry in a histogram for a statistic. A histogram maps the range of observed values on the X axis, and the prevalence of each value on the Y axis.</p>
 newtype HistogramEntry = HistogramEntry 
-  { "Value" :: NullOrUndefined (Number)
-  , "Count" :: NullOrUndefined (Int)
+  { "Value" :: Maybe (Number)
+  , "Count" :: Maybe (Int)
   }
 derive instance newtypeHistogramEntry :: Newtype HistogramEntry _
 derive instance repGenericHistogramEntry :: Generic HistogramEntry _
@@ -457,12 +456,12 @@ instance encodeHistogramEntry :: Encode HistogramEntry where encode = genericEnc
 
 -- | Constructs HistogramEntry from required parameters
 newHistogramEntry :: HistogramEntry
-newHistogramEntry  = HistogramEntry { "Count": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newHistogramEntry  = HistogramEntry { "Count": Nothing, "Value": Nothing }
 
 -- | Constructs HistogramEntry's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHistogramEntry' :: ( { "Value" :: NullOrUndefined (Number) , "Count" :: NullOrUndefined (Int) } -> {"Value" :: NullOrUndefined (Number) , "Count" :: NullOrUndefined (Int) } ) -> HistogramEntry
-newHistogramEntry'  customize = (HistogramEntry <<< customize) { "Count": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newHistogramEntry' :: ( { "Value" :: Maybe (Number) , "Count" :: Maybe (Int) } -> {"Value" :: Maybe (Number) , "Count" :: Maybe (Int) } ) -> HistogramEntry
+newHistogramEntry'  customize = (HistogramEntry <<< customize) { "Count": Nothing, "Value": Nothing }
 
 
 
@@ -477,11 +476,11 @@ instance encodeHostname :: Encode Hostname where encode = genericEncode options
 
 -- | <p>Information about an HTTP request.</p>
 newtype Http = Http 
-  { "HttpURL" :: NullOrUndefined (String)
-  , "HttpStatus" :: NullOrUndefined (NullableInteger)
-  , "HttpMethod" :: NullOrUndefined (String)
-  , "UserAgent" :: NullOrUndefined (String)
-  , "ClientIp" :: NullOrUndefined (String)
+  { "HttpURL" :: Maybe (String)
+  , "HttpStatus" :: Maybe (NullableInteger)
+  , "HttpMethod" :: Maybe (String)
+  , "UserAgent" :: Maybe (String)
+  , "ClientIp" :: Maybe (String)
   }
 derive instance newtypeHttp :: Newtype Http _
 derive instance repGenericHttp :: Generic Http _
@@ -491,18 +490,18 @@ instance encodeHttp :: Encode Http where encode = genericEncode options
 
 -- | Constructs Http from required parameters
 newHttp :: Http
-newHttp  = Http { "ClientIp": (NullOrUndefined Nothing), "HttpMethod": (NullOrUndefined Nothing), "HttpStatus": (NullOrUndefined Nothing), "HttpURL": (NullOrUndefined Nothing), "UserAgent": (NullOrUndefined Nothing) }
+newHttp  = Http { "ClientIp": Nothing, "HttpMethod": Nothing, "HttpStatus": Nothing, "HttpURL": Nothing, "UserAgent": Nothing }
 
 -- | Constructs Http's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHttp' :: ( { "HttpURL" :: NullOrUndefined (String) , "HttpStatus" :: NullOrUndefined (NullableInteger) , "HttpMethod" :: NullOrUndefined (String) , "UserAgent" :: NullOrUndefined (String) , "ClientIp" :: NullOrUndefined (String) } -> {"HttpURL" :: NullOrUndefined (String) , "HttpStatus" :: NullOrUndefined (NullableInteger) , "HttpMethod" :: NullOrUndefined (String) , "UserAgent" :: NullOrUndefined (String) , "ClientIp" :: NullOrUndefined (String) } ) -> Http
-newHttp'  customize = (Http <<< customize) { "ClientIp": (NullOrUndefined Nothing), "HttpMethod": (NullOrUndefined Nothing), "HttpStatus": (NullOrUndefined Nothing), "HttpURL": (NullOrUndefined Nothing), "UserAgent": (NullOrUndefined Nothing) }
+newHttp' :: ( { "HttpURL" :: Maybe (String) , "HttpStatus" :: Maybe (NullableInteger) , "HttpMethod" :: Maybe (String) , "UserAgent" :: Maybe (String) , "ClientIp" :: Maybe (String) } -> {"HttpURL" :: Maybe (String) , "HttpStatus" :: Maybe (NullableInteger) , "HttpMethod" :: Maybe (String) , "UserAgent" :: Maybe (String) , "ClientIp" :: Maybe (String) } ) -> Http
+newHttp'  customize = (Http <<< customize) { "ClientIp": Nothing, "HttpMethod": Nothing, "HttpStatus": Nothing, "HttpURL": Nothing, "UserAgent": Nothing }
 
 
 
 -- | <p>The request is missing required parameters or has invalid parameters.</p>
 newtype InvalidRequestException = InvalidRequestException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidRequestException :: Newtype InvalidRequestException _
 derive instance repGenericInvalidRequestException :: Generic InvalidRequestException _
@@ -512,12 +511,12 @@ instance encodeInvalidRequestException :: Encode InvalidRequestException where e
 
 -- | Constructs InvalidRequestException from required parameters
 newInvalidRequestException :: InvalidRequestException
-newInvalidRequestException  = InvalidRequestException { "Message": (NullOrUndefined Nothing) }
+newInvalidRequestException  = InvalidRequestException { "Message": Nothing }
 
 -- | Constructs InvalidRequestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidRequestException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidRequestException
-newInvalidRequestException'  customize = (InvalidRequestException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidRequestException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InvalidRequestException
+newInvalidRequestException'  customize = (InvalidRequestException <<< customize) { "Message": Nothing }
 
 
 
@@ -559,9 +558,9 @@ instance encodeNullableLong :: Encode NullableLong where encode = genericEncode 
 
 newtype PutTelemetryRecordsRequest = PutTelemetryRecordsRequest 
   { "TelemetryRecords" :: (TelemetryRecordList)
-  , "EC2InstanceId" :: NullOrUndefined (EC2InstanceId)
-  , "Hostname" :: NullOrUndefined (Hostname)
-  , "ResourceARN" :: NullOrUndefined (ResourceARN)
+  , "EC2InstanceId" :: Maybe (EC2InstanceId)
+  , "Hostname" :: Maybe (Hostname)
+  , "ResourceARN" :: Maybe (ResourceARN)
   }
 derive instance newtypePutTelemetryRecordsRequest :: Newtype PutTelemetryRecordsRequest _
 derive instance repGenericPutTelemetryRecordsRequest :: Generic PutTelemetryRecordsRequest _
@@ -571,12 +570,12 @@ instance encodePutTelemetryRecordsRequest :: Encode PutTelemetryRecordsRequest w
 
 -- | Constructs PutTelemetryRecordsRequest from required parameters
 newPutTelemetryRecordsRequest :: TelemetryRecordList -> PutTelemetryRecordsRequest
-newPutTelemetryRecordsRequest _TelemetryRecords = PutTelemetryRecordsRequest { "TelemetryRecords": _TelemetryRecords, "EC2InstanceId": (NullOrUndefined Nothing), "Hostname": (NullOrUndefined Nothing), "ResourceARN": (NullOrUndefined Nothing) }
+newPutTelemetryRecordsRequest _TelemetryRecords = PutTelemetryRecordsRequest { "TelemetryRecords": _TelemetryRecords, "EC2InstanceId": Nothing, "Hostname": Nothing, "ResourceARN": Nothing }
 
 -- | Constructs PutTelemetryRecordsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutTelemetryRecordsRequest' :: TelemetryRecordList -> ( { "TelemetryRecords" :: (TelemetryRecordList) , "EC2InstanceId" :: NullOrUndefined (EC2InstanceId) , "Hostname" :: NullOrUndefined (Hostname) , "ResourceARN" :: NullOrUndefined (ResourceARN) } -> {"TelemetryRecords" :: (TelemetryRecordList) , "EC2InstanceId" :: NullOrUndefined (EC2InstanceId) , "Hostname" :: NullOrUndefined (Hostname) , "ResourceARN" :: NullOrUndefined (ResourceARN) } ) -> PutTelemetryRecordsRequest
-newPutTelemetryRecordsRequest' _TelemetryRecords customize = (PutTelemetryRecordsRequest <<< customize) { "TelemetryRecords": _TelemetryRecords, "EC2InstanceId": (NullOrUndefined Nothing), "Hostname": (NullOrUndefined Nothing), "ResourceARN": (NullOrUndefined Nothing) }
+newPutTelemetryRecordsRequest' :: TelemetryRecordList -> ( { "TelemetryRecords" :: (TelemetryRecordList) , "EC2InstanceId" :: Maybe (EC2InstanceId) , "Hostname" :: Maybe (Hostname) , "ResourceARN" :: Maybe (ResourceARN) } -> {"TelemetryRecords" :: (TelemetryRecordList) , "EC2InstanceId" :: Maybe (EC2InstanceId) , "Hostname" :: Maybe (Hostname) , "ResourceARN" :: Maybe (ResourceARN) } ) -> PutTelemetryRecordsRequest
+newPutTelemetryRecordsRequest' _TelemetryRecords customize = (PutTelemetryRecordsRequest <<< customize) { "TelemetryRecords": _TelemetryRecords, "EC2InstanceId": Nothing, "Hostname": Nothing, "ResourceARN": Nothing }
 
 
 
@@ -610,7 +609,7 @@ newPutTraceSegmentsRequest' _TraceSegmentDocuments customize = (PutTraceSegments
 
 
 newtype PutTraceSegmentsResult = PutTraceSegmentsResult 
-  { "UnprocessedTraceSegments" :: NullOrUndefined (UnprocessedTraceSegmentList)
+  { "UnprocessedTraceSegments" :: Maybe (UnprocessedTraceSegmentList)
   }
 derive instance newtypePutTraceSegmentsResult :: Newtype PutTraceSegmentsResult _
 derive instance repGenericPutTraceSegmentsResult :: Generic PutTraceSegmentsResult _
@@ -620,12 +619,12 @@ instance encodePutTraceSegmentsResult :: Encode PutTraceSegmentsResult where enc
 
 -- | Constructs PutTraceSegmentsResult from required parameters
 newPutTraceSegmentsResult :: PutTraceSegmentsResult
-newPutTraceSegmentsResult  = PutTraceSegmentsResult { "UnprocessedTraceSegments": (NullOrUndefined Nothing) }
+newPutTraceSegmentsResult  = PutTraceSegmentsResult { "UnprocessedTraceSegments": Nothing }
 
 -- | Constructs PutTraceSegmentsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutTraceSegmentsResult' :: ( { "UnprocessedTraceSegments" :: NullOrUndefined (UnprocessedTraceSegmentList) } -> {"UnprocessedTraceSegments" :: NullOrUndefined (UnprocessedTraceSegmentList) } ) -> PutTraceSegmentsResult
-newPutTraceSegmentsResult'  customize = (PutTraceSegmentsResult <<< customize) { "UnprocessedTraceSegments": (NullOrUndefined Nothing) }
+newPutTraceSegmentsResult' :: ( { "UnprocessedTraceSegments" :: Maybe (UnprocessedTraceSegmentList) } -> {"UnprocessedTraceSegments" :: Maybe (UnprocessedTraceSegmentList) } ) -> PutTraceSegmentsResult
+newPutTraceSegmentsResult'  customize = (PutTraceSegmentsResult <<< customize) { "UnprocessedTraceSegments": Nothing }
 
 
 
@@ -640,8 +639,8 @@ instance encodeResourceARN :: Encode ResourceARN where encode = genericEncode op
 
 -- | <p>A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with <a>PutTraceSegments</a>, or an <code>inferred</code> segment for a downstream service, generated from a subsegment sent by the service that called it.</p>
 newtype Segment = Segment 
-  { "Id" :: NullOrUndefined (SegmentId)
-  , "Document" :: NullOrUndefined (SegmentDocument)
+  { "Id" :: Maybe (SegmentId)
+  , "Document" :: Maybe (SegmentDocument)
   }
 derive instance newtypeSegment :: Newtype Segment _
 derive instance repGenericSegment :: Generic Segment _
@@ -651,12 +650,12 @@ instance encodeSegment :: Encode Segment where encode = genericEncode options
 
 -- | Constructs Segment from required parameters
 newSegment :: Segment
-newSegment  = Segment { "Document": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing) }
+newSegment  = Segment { "Document": Nothing, "Id": Nothing }
 
 -- | Constructs Segment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSegment' :: ( { "Id" :: NullOrUndefined (SegmentId) , "Document" :: NullOrUndefined (SegmentDocument) } -> {"Id" :: NullOrUndefined (SegmentId) , "Document" :: NullOrUndefined (SegmentDocument) } ) -> Segment
-newSegment'  customize = (Segment <<< customize) { "Document": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing) }
+newSegment' :: ( { "Id" :: Maybe (SegmentId) , "Document" :: Maybe (SegmentDocument) } -> {"Id" :: Maybe (SegmentId) , "Document" :: Maybe (SegmentDocument) } ) -> Segment
+newSegment'  customize = (Segment <<< customize) { "Document": Nothing, "Id": Nothing }
 
 
 
@@ -689,19 +688,19 @@ instance encodeSegmentList :: Encode SegmentList where encode = genericEncode op
 
 -- | <p>Information about an application that processed requests, users that made requests, or downstream services, resources and applications that an application used.</p>
 newtype Service = Service 
-  { "ReferenceId" :: NullOrUndefined (NullableInteger)
-  , "Name" :: NullOrUndefined (String)
-  , "Names" :: NullOrUndefined (ServiceNames)
-  , "Root" :: NullOrUndefined (NullableBoolean)
-  , "AccountId" :: NullOrUndefined (String)
-  , "Type" :: NullOrUndefined (String)
-  , "State" :: NullOrUndefined (String)
-  , "StartTime" :: NullOrUndefined (Types.Timestamp)
-  , "EndTime" :: NullOrUndefined (Types.Timestamp)
-  , "Edges" :: NullOrUndefined (EdgeList)
-  , "SummaryStatistics" :: NullOrUndefined (ServiceStatistics)
-  , "DurationHistogram" :: NullOrUndefined (Histogram)
-  , "ResponseTimeHistogram" :: NullOrUndefined (Histogram)
+  { "ReferenceId" :: Maybe (NullableInteger)
+  , "Name" :: Maybe (String)
+  , "Names" :: Maybe (ServiceNames)
+  , "Root" :: Maybe (NullableBoolean)
+  , "AccountId" :: Maybe (String)
+  , "Type" :: Maybe (String)
+  , "State" :: Maybe (String)
+  , "StartTime" :: Maybe (Types.Timestamp)
+  , "EndTime" :: Maybe (Types.Timestamp)
+  , "Edges" :: Maybe (EdgeList)
+  , "SummaryStatistics" :: Maybe (ServiceStatistics)
+  , "DurationHistogram" :: Maybe (Histogram)
+  , "ResponseTimeHistogram" :: Maybe (Histogram)
   }
 derive instance newtypeService :: Newtype Service _
 derive instance repGenericService :: Generic Service _
@@ -711,21 +710,21 @@ instance encodeService :: Encode Service where encode = genericEncode options
 
 -- | Constructs Service from required parameters
 newService :: Service
-newService  = Service { "AccountId": (NullOrUndefined Nothing), "DurationHistogram": (NullOrUndefined Nothing), "Edges": (NullOrUndefined Nothing), "EndTime": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "ReferenceId": (NullOrUndefined Nothing), "ResponseTimeHistogram": (NullOrUndefined Nothing), "Root": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "SummaryStatistics": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newService  = Service { "AccountId": Nothing, "DurationHistogram": Nothing, "Edges": Nothing, "EndTime": Nothing, "Name": Nothing, "Names": Nothing, "ReferenceId": Nothing, "ResponseTimeHistogram": Nothing, "Root": Nothing, "StartTime": Nothing, "State": Nothing, "SummaryStatistics": Nothing, "Type": Nothing }
 
 -- | Constructs Service's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newService' :: ( { "ReferenceId" :: NullOrUndefined (NullableInteger) , "Name" :: NullOrUndefined (String) , "Names" :: NullOrUndefined (ServiceNames) , "Root" :: NullOrUndefined (NullableBoolean) , "AccountId" :: NullOrUndefined (String) , "Type" :: NullOrUndefined (String) , "State" :: NullOrUndefined (String) , "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "Edges" :: NullOrUndefined (EdgeList) , "SummaryStatistics" :: NullOrUndefined (ServiceStatistics) , "DurationHistogram" :: NullOrUndefined (Histogram) , "ResponseTimeHistogram" :: NullOrUndefined (Histogram) } -> {"ReferenceId" :: NullOrUndefined (NullableInteger) , "Name" :: NullOrUndefined (String) , "Names" :: NullOrUndefined (ServiceNames) , "Root" :: NullOrUndefined (NullableBoolean) , "AccountId" :: NullOrUndefined (String) , "Type" :: NullOrUndefined (String) , "State" :: NullOrUndefined (String) , "StartTime" :: NullOrUndefined (Types.Timestamp) , "EndTime" :: NullOrUndefined (Types.Timestamp) , "Edges" :: NullOrUndefined (EdgeList) , "SummaryStatistics" :: NullOrUndefined (ServiceStatistics) , "DurationHistogram" :: NullOrUndefined (Histogram) , "ResponseTimeHistogram" :: NullOrUndefined (Histogram) } ) -> Service
-newService'  customize = (Service <<< customize) { "AccountId": (NullOrUndefined Nothing), "DurationHistogram": (NullOrUndefined Nothing), "Edges": (NullOrUndefined Nothing), "EndTime": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "ReferenceId": (NullOrUndefined Nothing), "ResponseTimeHistogram": (NullOrUndefined Nothing), "Root": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing), "State": (NullOrUndefined Nothing), "SummaryStatistics": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newService' :: ( { "ReferenceId" :: Maybe (NullableInteger) , "Name" :: Maybe (String) , "Names" :: Maybe (ServiceNames) , "Root" :: Maybe (NullableBoolean) , "AccountId" :: Maybe (String) , "Type" :: Maybe (String) , "State" :: Maybe (String) , "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "Edges" :: Maybe (EdgeList) , "SummaryStatistics" :: Maybe (ServiceStatistics) , "DurationHistogram" :: Maybe (Histogram) , "ResponseTimeHistogram" :: Maybe (Histogram) } -> {"ReferenceId" :: Maybe (NullableInteger) , "Name" :: Maybe (String) , "Names" :: Maybe (ServiceNames) , "Root" :: Maybe (NullableBoolean) , "AccountId" :: Maybe (String) , "Type" :: Maybe (String) , "State" :: Maybe (String) , "StartTime" :: Maybe (Types.Timestamp) , "EndTime" :: Maybe (Types.Timestamp) , "Edges" :: Maybe (EdgeList) , "SummaryStatistics" :: Maybe (ServiceStatistics) , "DurationHistogram" :: Maybe (Histogram) , "ResponseTimeHistogram" :: Maybe (Histogram) } ) -> Service
+newService'  customize = (Service <<< customize) { "AccountId": Nothing, "DurationHistogram": Nothing, "Edges": Nothing, "EndTime": Nothing, "Name": Nothing, "Names": Nothing, "ReferenceId": Nothing, "ResponseTimeHistogram": Nothing, "Root": Nothing, "StartTime": Nothing, "State": Nothing, "SummaryStatistics": Nothing, "Type": Nothing }
 
 
 
 -- | <p/>
 newtype ServiceId = ServiceId 
-  { "Name" :: NullOrUndefined (String)
-  , "Names" :: NullOrUndefined (ServiceNames)
-  , "AccountId" :: NullOrUndefined (String)
-  , "Type" :: NullOrUndefined (String)
+  { "Name" :: Maybe (String)
+  , "Names" :: Maybe (ServiceNames)
+  , "AccountId" :: Maybe (String)
+  , "Type" :: Maybe (String)
   }
 derive instance newtypeServiceId :: Newtype ServiceId _
 derive instance repGenericServiceId :: Generic ServiceId _
@@ -735,12 +734,12 @@ instance encodeServiceId :: Encode ServiceId where encode = genericEncode option
 
 -- | Constructs ServiceId from required parameters
 newServiceId :: ServiceId
-newServiceId  = ServiceId { "AccountId": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newServiceId  = ServiceId { "AccountId": Nothing, "Name": Nothing, "Names": Nothing, "Type": Nothing }
 
 -- | Constructs ServiceId's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceId' :: ( { "Name" :: NullOrUndefined (String) , "Names" :: NullOrUndefined (ServiceNames) , "AccountId" :: NullOrUndefined (String) , "Type" :: NullOrUndefined (String) } -> {"Name" :: NullOrUndefined (String) , "Names" :: NullOrUndefined (ServiceNames) , "AccountId" :: NullOrUndefined (String) , "Type" :: NullOrUndefined (String) } ) -> ServiceId
-newServiceId'  customize = (ServiceId <<< customize) { "AccountId": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Names": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newServiceId' :: ( { "Name" :: Maybe (String) , "Names" :: Maybe (ServiceNames) , "AccountId" :: Maybe (String) , "Type" :: Maybe (String) } -> {"Name" :: Maybe (String) , "Names" :: Maybe (ServiceNames) , "AccountId" :: Maybe (String) , "Type" :: Maybe (String) } ) -> ServiceId
+newServiceId'  customize = (ServiceId <<< customize) { "AccountId": Nothing, "Name": Nothing, "Names": Nothing, "Type": Nothing }
 
 
 
@@ -773,11 +772,11 @@ instance encodeServiceNames :: Encode ServiceNames where encode = genericEncode 
 
 -- | <p>Response statistics for a service.</p>
 newtype ServiceStatistics = ServiceStatistics 
-  { "OkCount" :: NullOrUndefined (NullableLong)
-  , "ErrorStatistics" :: NullOrUndefined (ErrorStatistics)
-  , "FaultStatistics" :: NullOrUndefined (FaultStatistics)
-  , "TotalCount" :: NullOrUndefined (NullableLong)
-  , "TotalResponseTime" :: NullOrUndefined (NullableDouble)
+  { "OkCount" :: Maybe (NullableLong)
+  , "ErrorStatistics" :: Maybe (ErrorStatistics)
+  , "FaultStatistics" :: Maybe (FaultStatistics)
+  , "TotalCount" :: Maybe (NullableLong)
+  , "TotalResponseTime" :: Maybe (NullableDouble)
   }
 derive instance newtypeServiceStatistics :: Newtype ServiceStatistics _
 derive instance repGenericServiceStatistics :: Generic ServiceStatistics _
@@ -787,23 +786,23 @@ instance encodeServiceStatistics :: Encode ServiceStatistics where encode = gene
 
 -- | Constructs ServiceStatistics from required parameters
 newServiceStatistics :: ServiceStatistics
-newServiceStatistics  = ServiceStatistics { "ErrorStatistics": (NullOrUndefined Nothing), "FaultStatistics": (NullOrUndefined Nothing), "OkCount": (NullOrUndefined Nothing), "TotalCount": (NullOrUndefined Nothing), "TotalResponseTime": (NullOrUndefined Nothing) }
+newServiceStatistics  = ServiceStatistics { "ErrorStatistics": Nothing, "FaultStatistics": Nothing, "OkCount": Nothing, "TotalCount": Nothing, "TotalResponseTime": Nothing }
 
 -- | Constructs ServiceStatistics's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceStatistics' :: ( { "OkCount" :: NullOrUndefined (NullableLong) , "ErrorStatistics" :: NullOrUndefined (ErrorStatistics) , "FaultStatistics" :: NullOrUndefined (FaultStatistics) , "TotalCount" :: NullOrUndefined (NullableLong) , "TotalResponseTime" :: NullOrUndefined (NullableDouble) } -> {"OkCount" :: NullOrUndefined (NullableLong) , "ErrorStatistics" :: NullOrUndefined (ErrorStatistics) , "FaultStatistics" :: NullOrUndefined (FaultStatistics) , "TotalCount" :: NullOrUndefined (NullableLong) , "TotalResponseTime" :: NullOrUndefined (NullableDouble) } ) -> ServiceStatistics
-newServiceStatistics'  customize = (ServiceStatistics <<< customize) { "ErrorStatistics": (NullOrUndefined Nothing), "FaultStatistics": (NullOrUndefined Nothing), "OkCount": (NullOrUndefined Nothing), "TotalCount": (NullOrUndefined Nothing), "TotalResponseTime": (NullOrUndefined Nothing) }
+newServiceStatistics' :: ( { "OkCount" :: Maybe (NullableLong) , "ErrorStatistics" :: Maybe (ErrorStatistics) , "FaultStatistics" :: Maybe (FaultStatistics) , "TotalCount" :: Maybe (NullableLong) , "TotalResponseTime" :: Maybe (NullableDouble) } -> {"OkCount" :: Maybe (NullableLong) , "ErrorStatistics" :: Maybe (ErrorStatistics) , "FaultStatistics" :: Maybe (FaultStatistics) , "TotalCount" :: Maybe (NullableLong) , "TotalResponseTime" :: Maybe (NullableDouble) } ) -> ServiceStatistics
+newServiceStatistics'  customize = (ServiceStatistics <<< customize) { "ErrorStatistics": Nothing, "FaultStatistics": Nothing, "OkCount": Nothing, "TotalCount": Nothing, "TotalResponseTime": Nothing }
 
 
 
 -- | <p/>
 newtype TelemetryRecord = TelemetryRecord 
   { "Timestamp" :: (Types.Timestamp)
-  , "SegmentsReceivedCount" :: NullOrUndefined (NullableInteger)
-  , "SegmentsSentCount" :: NullOrUndefined (NullableInteger)
-  , "SegmentsSpilloverCount" :: NullOrUndefined (NullableInteger)
-  , "SegmentsRejectedCount" :: NullOrUndefined (NullableInteger)
-  , "BackendConnectionErrors" :: NullOrUndefined (BackendConnectionErrors)
+  , "SegmentsReceivedCount" :: Maybe (NullableInteger)
+  , "SegmentsSentCount" :: Maybe (NullableInteger)
+  , "SegmentsSpilloverCount" :: Maybe (NullableInteger)
+  , "SegmentsRejectedCount" :: Maybe (NullableInteger)
+  , "BackendConnectionErrors" :: Maybe (BackendConnectionErrors)
   }
 derive instance newtypeTelemetryRecord :: Newtype TelemetryRecord _
 derive instance repGenericTelemetryRecord :: Generic TelemetryRecord _
@@ -813,12 +812,12 @@ instance encodeTelemetryRecord :: Encode TelemetryRecord where encode = genericE
 
 -- | Constructs TelemetryRecord from required parameters
 newTelemetryRecord :: Types.Timestamp -> TelemetryRecord
-newTelemetryRecord _Timestamp = TelemetryRecord { "Timestamp": _Timestamp, "BackendConnectionErrors": (NullOrUndefined Nothing), "SegmentsReceivedCount": (NullOrUndefined Nothing), "SegmentsRejectedCount": (NullOrUndefined Nothing), "SegmentsSentCount": (NullOrUndefined Nothing), "SegmentsSpilloverCount": (NullOrUndefined Nothing) }
+newTelemetryRecord _Timestamp = TelemetryRecord { "Timestamp": _Timestamp, "BackendConnectionErrors": Nothing, "SegmentsReceivedCount": Nothing, "SegmentsRejectedCount": Nothing, "SegmentsSentCount": Nothing, "SegmentsSpilloverCount": Nothing }
 
 -- | Constructs TelemetryRecord's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTelemetryRecord' :: Types.Timestamp -> ( { "Timestamp" :: (Types.Timestamp) , "SegmentsReceivedCount" :: NullOrUndefined (NullableInteger) , "SegmentsSentCount" :: NullOrUndefined (NullableInteger) , "SegmentsSpilloverCount" :: NullOrUndefined (NullableInteger) , "SegmentsRejectedCount" :: NullOrUndefined (NullableInteger) , "BackendConnectionErrors" :: NullOrUndefined (BackendConnectionErrors) } -> {"Timestamp" :: (Types.Timestamp) , "SegmentsReceivedCount" :: NullOrUndefined (NullableInteger) , "SegmentsSentCount" :: NullOrUndefined (NullableInteger) , "SegmentsSpilloverCount" :: NullOrUndefined (NullableInteger) , "SegmentsRejectedCount" :: NullOrUndefined (NullableInteger) , "BackendConnectionErrors" :: NullOrUndefined (BackendConnectionErrors) } ) -> TelemetryRecord
-newTelemetryRecord' _Timestamp customize = (TelemetryRecord <<< customize) { "Timestamp": _Timestamp, "BackendConnectionErrors": (NullOrUndefined Nothing), "SegmentsReceivedCount": (NullOrUndefined Nothing), "SegmentsRejectedCount": (NullOrUndefined Nothing), "SegmentsSentCount": (NullOrUndefined Nothing), "SegmentsSpilloverCount": (NullOrUndefined Nothing) }
+newTelemetryRecord' :: Types.Timestamp -> ( { "Timestamp" :: (Types.Timestamp) , "SegmentsReceivedCount" :: Maybe (NullableInteger) , "SegmentsSentCount" :: Maybe (NullableInteger) , "SegmentsSpilloverCount" :: Maybe (NullableInteger) , "SegmentsRejectedCount" :: Maybe (NullableInteger) , "BackendConnectionErrors" :: Maybe (BackendConnectionErrors) } -> {"Timestamp" :: (Types.Timestamp) , "SegmentsReceivedCount" :: Maybe (NullableInteger) , "SegmentsSentCount" :: Maybe (NullableInteger) , "SegmentsSpilloverCount" :: Maybe (NullableInteger) , "SegmentsRejectedCount" :: Maybe (NullableInteger) , "BackendConnectionErrors" :: Maybe (BackendConnectionErrors) } ) -> TelemetryRecord
+newTelemetryRecord' _Timestamp customize = (TelemetryRecord <<< customize) { "Timestamp": _Timestamp, "BackendConnectionErrors": Nothing, "SegmentsReceivedCount": Nothing, "SegmentsRejectedCount": Nothing, "SegmentsSentCount": Nothing, "SegmentsSpilloverCount": Nothing }
 
 
 
@@ -833,7 +832,7 @@ instance encodeTelemetryRecordList :: Encode TelemetryRecordList where encode = 
 
 -- | <p>The request exceeds the maximum number of requests per second.</p>
 newtype ThrottledException = ThrottledException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeThrottledException :: Newtype ThrottledException _
 derive instance repGenericThrottledException :: Generic ThrottledException _
@@ -843,20 +842,20 @@ instance encodeThrottledException :: Encode ThrottledException where encode = ge
 
 -- | Constructs ThrottledException from required parameters
 newThrottledException :: ThrottledException
-newThrottledException  = ThrottledException { "Message": (NullOrUndefined Nothing) }
+newThrottledException  = ThrottledException { "Message": Nothing }
 
 -- | Constructs ThrottledException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newThrottledException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ThrottledException
-newThrottledException'  customize = (ThrottledException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newThrottledException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ThrottledException
+newThrottledException'  customize = (ThrottledException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>A collection of segment documents with matching trace IDs.</p>
 newtype Trace = Trace 
-  { "Id" :: NullOrUndefined (TraceId)
-  , "Duration" :: NullOrUndefined (NullableDouble)
-  , "Segments" :: NullOrUndefined (SegmentList)
+  { "Id" :: Maybe (TraceId)
+  , "Duration" :: Maybe (NullableDouble)
+  , "Segments" :: Maybe (SegmentList)
   }
 derive instance newtypeTrace :: Newtype Trace _
 derive instance repGenericTrace :: Generic Trace _
@@ -866,12 +865,12 @@ instance encodeTrace :: Encode Trace where encode = genericEncode options
 
 -- | Constructs Trace from required parameters
 newTrace :: Trace
-newTrace  = Trace { "Duration": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Segments": (NullOrUndefined Nothing) }
+newTrace  = Trace { "Duration": Nothing, "Id": Nothing, "Segments": Nothing }
 
 -- | Constructs Trace's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTrace' :: ( { "Id" :: NullOrUndefined (TraceId) , "Duration" :: NullOrUndefined (NullableDouble) , "Segments" :: NullOrUndefined (SegmentList) } -> {"Id" :: NullOrUndefined (TraceId) , "Duration" :: NullOrUndefined (NullableDouble) , "Segments" :: NullOrUndefined (SegmentList) } ) -> Trace
-newTrace'  customize = (Trace <<< customize) { "Duration": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Segments": (NullOrUndefined Nothing) }
+newTrace' :: ( { "Id" :: Maybe (TraceId) , "Duration" :: Maybe (NullableDouble) , "Segments" :: Maybe (SegmentList) } -> {"Id" :: Maybe (TraceId) , "Duration" :: Maybe (NullableDouble) , "Segments" :: Maybe (SegmentList) } ) -> Trace
+newTrace'  customize = (Trace <<< customize) { "Duration": Nothing, "Id": Nothing, "Segments": Nothing }
 
 
 
@@ -922,17 +921,17 @@ instance encodeTraceSegmentDocumentList :: Encode TraceSegmentDocumentList where
 
 -- | <p>Metadata generated from the segment documents in a trace.</p>
 newtype TraceSummary = TraceSummary 
-  { "Id" :: NullOrUndefined (TraceId)
-  , "Duration" :: NullOrUndefined (NullableDouble)
-  , "ResponseTime" :: NullOrUndefined (NullableDouble)
-  , "HasFault" :: NullOrUndefined (NullableBoolean)
-  , "HasError" :: NullOrUndefined (NullableBoolean)
-  , "HasThrottle" :: NullOrUndefined (NullableBoolean)
-  , "IsPartial" :: NullOrUndefined (NullableBoolean)
-  , "Http" :: NullOrUndefined (Http)
-  , "Annotations" :: NullOrUndefined (Annotations)
-  , "Users" :: NullOrUndefined (TraceUsers)
-  , "ServiceIds" :: NullOrUndefined (ServiceIds)
+  { "Id" :: Maybe (TraceId)
+  , "Duration" :: Maybe (NullableDouble)
+  , "ResponseTime" :: Maybe (NullableDouble)
+  , "HasFault" :: Maybe (NullableBoolean)
+  , "HasError" :: Maybe (NullableBoolean)
+  , "HasThrottle" :: Maybe (NullableBoolean)
+  , "IsPartial" :: Maybe (NullableBoolean)
+  , "Http" :: Maybe (Http)
+  , "Annotations" :: Maybe (Annotations)
+  , "Users" :: Maybe (TraceUsers)
+  , "ServiceIds" :: Maybe (ServiceIds)
   }
 derive instance newtypeTraceSummary :: Newtype TraceSummary _
 derive instance repGenericTraceSummary :: Generic TraceSummary _
@@ -942,12 +941,12 @@ instance encodeTraceSummary :: Encode TraceSummary where encode = genericEncode 
 
 -- | Constructs TraceSummary from required parameters
 newTraceSummary :: TraceSummary
-newTraceSummary  = TraceSummary { "Annotations": (NullOrUndefined Nothing), "Duration": (NullOrUndefined Nothing), "HasError": (NullOrUndefined Nothing), "HasFault": (NullOrUndefined Nothing), "HasThrottle": (NullOrUndefined Nothing), "Http": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "IsPartial": (NullOrUndefined Nothing), "ResponseTime": (NullOrUndefined Nothing), "ServiceIds": (NullOrUndefined Nothing), "Users": (NullOrUndefined Nothing) }
+newTraceSummary  = TraceSummary { "Annotations": Nothing, "Duration": Nothing, "HasError": Nothing, "HasFault": Nothing, "HasThrottle": Nothing, "Http": Nothing, "Id": Nothing, "IsPartial": Nothing, "ResponseTime": Nothing, "ServiceIds": Nothing, "Users": Nothing }
 
 -- | Constructs TraceSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTraceSummary' :: ( { "Id" :: NullOrUndefined (TraceId) , "Duration" :: NullOrUndefined (NullableDouble) , "ResponseTime" :: NullOrUndefined (NullableDouble) , "HasFault" :: NullOrUndefined (NullableBoolean) , "HasError" :: NullOrUndefined (NullableBoolean) , "HasThrottle" :: NullOrUndefined (NullableBoolean) , "IsPartial" :: NullOrUndefined (NullableBoolean) , "Http" :: NullOrUndefined (Http) , "Annotations" :: NullOrUndefined (Annotations) , "Users" :: NullOrUndefined (TraceUsers) , "ServiceIds" :: NullOrUndefined (ServiceIds) } -> {"Id" :: NullOrUndefined (TraceId) , "Duration" :: NullOrUndefined (NullableDouble) , "ResponseTime" :: NullOrUndefined (NullableDouble) , "HasFault" :: NullOrUndefined (NullableBoolean) , "HasError" :: NullOrUndefined (NullableBoolean) , "HasThrottle" :: NullOrUndefined (NullableBoolean) , "IsPartial" :: NullOrUndefined (NullableBoolean) , "Http" :: NullOrUndefined (Http) , "Annotations" :: NullOrUndefined (Annotations) , "Users" :: NullOrUndefined (TraceUsers) , "ServiceIds" :: NullOrUndefined (ServiceIds) } ) -> TraceSummary
-newTraceSummary'  customize = (TraceSummary <<< customize) { "Annotations": (NullOrUndefined Nothing), "Duration": (NullOrUndefined Nothing), "HasError": (NullOrUndefined Nothing), "HasFault": (NullOrUndefined Nothing), "HasThrottle": (NullOrUndefined Nothing), "Http": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "IsPartial": (NullOrUndefined Nothing), "ResponseTime": (NullOrUndefined Nothing), "ServiceIds": (NullOrUndefined Nothing), "Users": (NullOrUndefined Nothing) }
+newTraceSummary' :: ( { "Id" :: Maybe (TraceId) , "Duration" :: Maybe (NullableDouble) , "ResponseTime" :: Maybe (NullableDouble) , "HasFault" :: Maybe (NullableBoolean) , "HasError" :: Maybe (NullableBoolean) , "HasThrottle" :: Maybe (NullableBoolean) , "IsPartial" :: Maybe (NullableBoolean) , "Http" :: Maybe (Http) , "Annotations" :: Maybe (Annotations) , "Users" :: Maybe (TraceUsers) , "ServiceIds" :: Maybe (ServiceIds) } -> {"Id" :: Maybe (TraceId) , "Duration" :: Maybe (NullableDouble) , "ResponseTime" :: Maybe (NullableDouble) , "HasFault" :: Maybe (NullableBoolean) , "HasError" :: Maybe (NullableBoolean) , "HasThrottle" :: Maybe (NullableBoolean) , "IsPartial" :: Maybe (NullableBoolean) , "Http" :: Maybe (Http) , "Annotations" :: Maybe (Annotations) , "Users" :: Maybe (TraceUsers) , "ServiceIds" :: Maybe (ServiceIds) } ) -> TraceSummary
+newTraceSummary'  customize = (TraceSummary <<< customize) { "Annotations": Nothing, "Duration": Nothing, "HasError": Nothing, "HasFault": Nothing, "HasThrottle": Nothing, "Http": Nothing, "Id": Nothing, "IsPartial": Nothing, "ResponseTime": Nothing, "ServiceIds": Nothing, "Users": Nothing }
 
 
 
@@ -962,8 +961,8 @@ instance encodeTraceSummaryList :: Encode TraceSummaryList where encode = generi
 
 -- | <p>Information about a user recorded in segment documents.</p>
 newtype TraceUser = TraceUser 
-  { "UserName" :: NullOrUndefined (String)
-  , "ServiceIds" :: NullOrUndefined (ServiceIds)
+  { "UserName" :: Maybe (String)
+  , "ServiceIds" :: Maybe (ServiceIds)
   }
 derive instance newtypeTraceUser :: Newtype TraceUser _
 derive instance repGenericTraceUser :: Generic TraceUser _
@@ -973,12 +972,12 @@ instance encodeTraceUser :: Encode TraceUser where encode = genericEncode option
 
 -- | Constructs TraceUser from required parameters
 newTraceUser :: TraceUser
-newTraceUser  = TraceUser { "ServiceIds": (NullOrUndefined Nothing), "UserName": (NullOrUndefined Nothing) }
+newTraceUser  = TraceUser { "ServiceIds": Nothing, "UserName": Nothing }
 
 -- | Constructs TraceUser's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTraceUser' :: ( { "UserName" :: NullOrUndefined (String) , "ServiceIds" :: NullOrUndefined (ServiceIds) } -> {"UserName" :: NullOrUndefined (String) , "ServiceIds" :: NullOrUndefined (ServiceIds) } ) -> TraceUser
-newTraceUser'  customize = (TraceUser <<< customize) { "ServiceIds": (NullOrUndefined Nothing), "UserName": (NullOrUndefined Nothing) }
+newTraceUser' :: ( { "UserName" :: Maybe (String) , "ServiceIds" :: Maybe (ServiceIds) } -> {"UserName" :: Maybe (String) , "ServiceIds" :: Maybe (ServiceIds) } ) -> TraceUser
+newTraceUser'  customize = (TraceUser <<< customize) { "ServiceIds": Nothing, "UserName": Nothing }
 
 
 
@@ -1002,9 +1001,9 @@ instance encodeUnprocessedTraceIdList :: Encode UnprocessedTraceIdList where enc
 
 -- | <p>Information about a segment that failed processing.</p>
 newtype UnprocessedTraceSegment = UnprocessedTraceSegment 
-  { "Id" :: NullOrUndefined (String)
-  , "ErrorCode" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
+  { "Id" :: Maybe (String)
+  , "ErrorCode" :: Maybe (String)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeUnprocessedTraceSegment :: Newtype UnprocessedTraceSegment _
 derive instance repGenericUnprocessedTraceSegment :: Generic UnprocessedTraceSegment _
@@ -1014,12 +1013,12 @@ instance encodeUnprocessedTraceSegment :: Encode UnprocessedTraceSegment where e
 
 -- | Constructs UnprocessedTraceSegment from required parameters
 newUnprocessedTraceSegment :: UnprocessedTraceSegment
-newUnprocessedTraceSegment  = UnprocessedTraceSegment { "ErrorCode": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newUnprocessedTraceSegment  = UnprocessedTraceSegment { "ErrorCode": Nothing, "Id": Nothing, "Message": Nothing }
 
 -- | Constructs UnprocessedTraceSegment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnprocessedTraceSegment' :: ( { "Id" :: NullOrUndefined (String) , "ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } -> {"Id" :: NullOrUndefined (String) , "ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } ) -> UnprocessedTraceSegment
-newUnprocessedTraceSegment'  customize = (UnprocessedTraceSegment <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "Id": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newUnprocessedTraceSegment' :: ( { "Id" :: Maybe (String) , "ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } -> {"Id" :: Maybe (String) , "ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } ) -> UnprocessedTraceSegment
+newUnprocessedTraceSegment'  customize = (UnprocessedTraceSegment <<< customize) { "ErrorCode": Nothing, "Id": Nothing, "Message": Nothing }
 
 
 
@@ -1034,8 +1033,8 @@ instance encodeUnprocessedTraceSegmentList :: Encode UnprocessedTraceSegmentList
 
 -- | <p>Information about a segment annotation.</p>
 newtype ValueWithServiceIds = ValueWithServiceIds 
-  { "AnnotationValue" :: NullOrUndefined (AnnotationValue)
-  , "ServiceIds" :: NullOrUndefined (ServiceIds)
+  { "AnnotationValue" :: Maybe (AnnotationValue)
+  , "ServiceIds" :: Maybe (ServiceIds)
   }
 derive instance newtypeValueWithServiceIds :: Newtype ValueWithServiceIds _
 derive instance repGenericValueWithServiceIds :: Generic ValueWithServiceIds _
@@ -1045,12 +1044,12 @@ instance encodeValueWithServiceIds :: Encode ValueWithServiceIds where encode = 
 
 -- | Constructs ValueWithServiceIds from required parameters
 newValueWithServiceIds :: ValueWithServiceIds
-newValueWithServiceIds  = ValueWithServiceIds { "AnnotationValue": (NullOrUndefined Nothing), "ServiceIds": (NullOrUndefined Nothing) }
+newValueWithServiceIds  = ValueWithServiceIds { "AnnotationValue": Nothing, "ServiceIds": Nothing }
 
 -- | Constructs ValueWithServiceIds's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newValueWithServiceIds' :: ( { "AnnotationValue" :: NullOrUndefined (AnnotationValue) , "ServiceIds" :: NullOrUndefined (ServiceIds) } -> {"AnnotationValue" :: NullOrUndefined (AnnotationValue) , "ServiceIds" :: NullOrUndefined (ServiceIds) } ) -> ValueWithServiceIds
-newValueWithServiceIds'  customize = (ValueWithServiceIds <<< customize) { "AnnotationValue": (NullOrUndefined Nothing), "ServiceIds": (NullOrUndefined Nothing) }
+newValueWithServiceIds' :: ( { "AnnotationValue" :: Maybe (AnnotationValue) , "ServiceIds" :: Maybe (ServiceIds) } -> {"AnnotationValue" :: Maybe (AnnotationValue) , "ServiceIds" :: Maybe (ServiceIds) } ) -> ValueWithServiceIds
+newValueWithServiceIds'  customize = (ValueWithServiceIds <<< customize) { "AnnotationValue": Nothing, "ServiceIds": Nothing }
 
 
 
